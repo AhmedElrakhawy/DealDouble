@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "+6SsRKAC5/rCna8vHE1JQpnbN2q3ADNk++Dz6inBWdn1eezvuFqUzEVKGv2ayf/9iaSYLEidmotNZotgwueelQ==",
+  "success": true,
+  "projectFilePath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Data\\DealDouble.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SOFT\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

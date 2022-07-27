@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealDouble.Web", "DealDouble.Web\DealDouble.Web.csproj", "{E0E630D3-796A-4F26-987D-DC360B3B7529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealDouble.Entities", "DealDouble.Entities\DealDouble.Entities.csproj", "{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DealDouble.Data", "DealDouble.Data\DealDouble.Data.csproj", "{0EE647EC-8448-489B-A207-8E521AC27F85}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0E630D3-796A-4F26-987D-DC360B3B7529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E630D3-796A-4F26-987D-DC360B3B7529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E630D3-796A-4F26-987D-DC360B3B7529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E630D3-796A-4F26-987D-DC360B3B7529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE647EC-8448-489B-A207-8E521AC27F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE647EC-8448-489B-A207-8E521AC27F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE647EC-8448-489B-A207-8E521AC27F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE647EC-8448-489B-A207-8E521AC27F85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
