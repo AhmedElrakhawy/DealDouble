@@ -83,3 +83,10 @@ D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.csproj.Co
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.csproj.CopyComplete
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll.config

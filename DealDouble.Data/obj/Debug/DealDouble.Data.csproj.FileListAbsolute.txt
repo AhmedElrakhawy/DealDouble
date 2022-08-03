@@ -12,3 +12,7 @@ D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\DealDouble.Entities.dll
 D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\DealDouble.Entities.pdb
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingAuctionTable.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.csproj.GenerateResource.cache
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.ChangingDatetimeToDatetime2.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.ChangingAuctionDateTimeEntitiesFormat.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.EditingDateTimeFormatAuctions.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.EditingDateTimeFormatAuctions1.resources

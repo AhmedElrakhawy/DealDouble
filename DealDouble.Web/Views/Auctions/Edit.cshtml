@@ -1,0 +1,32 @@
+﻿@model DealDouble.Entities.Auction
+<h2>Edit Auction</h2>
+
+<form method="post">
+    <input type="hidden" value="@Model.ID" />
+    <label for="Title">
+        Title
+    </label>
+    <input name="Title" value="@Model.Title" placeholder="@Model.Title" />
+    <hr />
+    <label for="Description">
+        Description
+    </label>
+    <input name="Description" value="@Model.Description" placeholder="@Model.Description" />
+    <hr />
+    <label for="ActualAmount">
+        ActualAmount
+    </label>
+    <input name="ActualAmount" value="@Model.ActualAmount" placeholder="@Model.ActualAmount" />
+    <hr />
+    <label for="StartingTime">
+        StartingTime
+    </label>
+    <input name="StartingTime" value="@Model.StartingTime" placeholder="@Model.StartingTime" />
+    <hr />
+    <label for="EndingTime">
+        EndingTime
+    </label>
+    <input name="EndingTime" value="@Model.EndingTime" placeholder="@Model.EndingTime" />
+    <hr />
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,14 @@
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Services.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Services.pdb
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\EntityFramework.SqlServer.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\EntityFramework.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Data.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Entities.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Data.pdb
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Data.dll.config
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\DealDouble.Entities.pdb
+D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.csproj.AssemblyReference.cache
+D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.csproj.CoreCompileInputs.cache
+D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.csproj.CopyComplete
+D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.pdb

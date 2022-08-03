@@ -46,6 +46,22 @@
     <Compile Include="Migrations\202207270455421_AddingAuctionTable.Designer.cs">
       <DependentUpon>202207270455421_AddingAuctionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207271802495_ChangingDatetimeToDatetime2.cs" />
+    <Compile Include="Migrations\202207271802495_ChangingDatetimeToDatetime2.Designer.cs">
+      <DependentUpon>202207271802495_ChangingDatetimeToDatetime2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208030155342_ChangingAuctionDateTimeEntitiesFormat.cs" />
+    <Compile Include="Migrations\202208030155342_ChangingAuctionDateTimeEntitiesFormat.Designer.cs">
+      <DependentUpon>202208030155342_ChangingAuctionDateTimeEntitiesFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208030205499_EditingDateTimeFormatAuctions.cs" />
+    <Compile Include="Migrations\202208030205499_EditingDateTimeFormatAuctions.Designer.cs">
+      <DependentUpon>202208030205499_EditingDateTimeFormatAuctions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208030208260_EditingDateTimeFormatAuctions1.cs" />
+    <Compile Include="Migrations\202208030208260_EditingDateTimeFormatAuctions1.Designer.cs">
+      <DependentUpon>202208030208260_EditingDateTimeFormatAuctions1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +82,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202207270455421_AddingAuctionTable.resx">
       <DependentUpon>202207270455421_AddingAuctionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207271802495_ChangingDatetimeToDatetime2.resx">
+      <DependentUpon>202207271802495_ChangingDatetimeToDatetime2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208030155342_ChangingAuctionDateTimeEntitiesFormat.resx">
+      <DependentUpon>202208030155342_ChangingAuctionDateTimeEntitiesFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208030205499_EditingDateTimeFormatAuctions.resx">
+      <DependentUpon>202208030205499_EditingDateTimeFormatAuctions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208030208260_EditingDateTimeFormatAuctions1.resx">
+      <DependentUpon>202208030208260_EditingDateTimeFormatAuctions1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,62 @@
+﻿@model List<DealDouble.Entities.Auction>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                ActualAmount
+            </th>
+            <th>
+                Starting Time
+            </th>
+            <th>
+                Ending Time
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+
+        foreach (var Auction in Model)
+        {
+        <tr>
+            <td>
+                @Auction.Title
+            </td>
+            <td>
+                @Auction.Description
+            </td>
+            <td>
+                @Auction.ActualAmount
+            </td>
+            <td>
+                @Auction.StartingTime
+            </td>
+            <td>
+                @Auction.EndingTime
+            </td>
+            <td>
+                <a class="btn btn-danger" href="@Url.Action("Edit","Auctions",new { ID = Auction.ID })">Edit</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete","Auctions",new { ID = Auction.ID })">Delete</a>
+            </td>
+        </tr>
+            }
+        }
+        else
+        {
+            <h2>No Auctions Exist</h2>
+        }
+    </tbody>
+</table>

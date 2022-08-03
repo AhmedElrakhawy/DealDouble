@@ -1,0 +1,273 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.5.2": {
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "DealDouble.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DealDouble.Entities": "1.0.0",
+          "EntityFramework": "6.2.0"
+        },
+        "compile": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        }
+      },
+      "DealDouble.Entities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.2/win": {
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "DealDouble.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DealDouble.Entities": "1.0.0",
+          "EntityFramework": "6.2.0"
+        },
+        "compile": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        }
+      },
+      "DealDouble.Entities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.2/win-x64": {
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "DealDouble.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DealDouble.Entities": "1.0.0",
+          "EntityFramework": "6.2.0"
+        },
+        "compile": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        }
+      },
+      "DealDouble.Entities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.2/win-x86": {
+      "EntityFramework/6.2.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.ComponentModel.DataAnnotations"
+        ],
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
+      "DealDouble.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "DealDouble.Entities": "1.0.0",
+          "EntityFramework": "6.2.0"
+        },
+        "compile": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Data.dll": {}
+        }
+      },
+      "DealDouble.Entities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DealDouble.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EntityFramework/6.2.0": {
+      "sha512": "ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "type": "package",
+      "path": "entityframework/6.2.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/net40/App.config.transform",
+        "content/net40/Web.config.transform",
+        "entityframework.6.2.0.nupkg.sha512",
+        "entityframework.nuspec",
+        "lib/net40/EntityFramework.SqlServer.dll",
+        "lib/net40/EntityFramework.SqlServer.xml",
+        "lib/net40/EntityFramework.dll",
+        "lib/net40/EntityFramework.xml",
+        "lib/net45/EntityFramework.SqlServer.dll",
+        "lib/net45/EntityFramework.SqlServer.xml",
+        "lib/net45/EntityFramework.dll",
+        "lib/net45/EntityFramework.xml",
+        "tools/EntityFramework.PowerShell.Utility.dll",
+        "tools/EntityFramework.PowerShell.dll",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/about_EntityFramework.help.txt",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/migrate.exe"
+      ]
+    },
+    "DealDouble.Data/1.0.0": {
+      "type": "project",
+      "path": "../DealDouble.Data/DealDouble.Data.csproj",
+      "msbuildProject": "../DealDouble.Data/DealDouble.Data.csproj"
+    },
+    "DealDouble.Entities/1.0.0": {
+      "type": "project",
+      "path": "../DealDouble.Entities/DealDouble.Entities.csproj",
+      "msbuildProject": "../DealDouble.Entities/DealDouble.Entities.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.5.2": [
+      "DealDouble.Data >= 1.0.0",
+      "DealDouble.Entities >= 1.0.0",
+      "EntityFramework >= 6.2.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\SOFT\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\My work\\Projects\\DealDouble\\DealDouble.Services\\DealDouble.Services.csproj",
+      "projectName": "DealDouble.Services",
+      "projectPath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Services\\DealDouble.Services.csproj",
+      "packagesPath": "C:\\Users\\SOFT\\.nuget\\packages\\",
+      "outputPath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Services\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\SOFT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net452"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\SOFT\\.nuget\\packages\\": {},
+        "D:\\My work\\Entity Framework in Depth - The Complete Guide\\9. Using Entity Framework in Your Applications\\PlutoWeb\\packages": {},
+        "http://go.microsoft.com/fwlink/?LinkID=206669": {},
+        "http://packages.nuget.org/v1/FeedService.svc/": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net452": {
+          "projectReferences": {
+            "D:\\My work\\Projects\\DealDouble\\DealDouble.Data\\DealDouble.Data.csproj": {
+              "projectPath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Data\\DealDouble.Data.csproj"
+            },
+            "D:\\My work\\Projects\\DealDouble\\DealDouble.Entities\\DealDouble.Entities.csproj": {
+              "projectPath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Entities\\DealDouble.Entities.csproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net452": {
+        "dependencies": {
+          "EntityFramework": {
+            "target": "Package",
+            "version": "[6.2.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}
