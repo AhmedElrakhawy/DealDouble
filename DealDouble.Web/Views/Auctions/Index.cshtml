@@ -3,62 +3,65 @@
     ViewBag.Title = "Index";
 }
 
-<div id="tableContainer">
-    <h2>Index</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    ActualAmount
-                </th>
-                <th>
-                    Starting Time
-                </th>
-                <th>
-                    Ending Time
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var Auction in Model)
-            {
+<div class="row">
+    <div class="col-lg-12" id="tableContainer">
+        <h2>Auctions</h2>
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>
-                        @Auction.Title
-                    </td>
-                    <td>
-                        @Auction.Description
-                    </td>
-                    <td>
-                        @Auction.ActualAmount
-                    </td>
-                    <td>
-                        @Auction.StartingTime
-                    </td>
-                    <td>
-                        @Auction.EndingTime
-                    </td>
-                    <td>
-                        <button type="button" class="editbtn" data-ID="@Auction.ID">Edit</button>
-                        <button type="button" class="deletebtn" data-ID="@Auction.ID">Delete</button>
-                    </td>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        ActualAmount
+                    </th>
+                    <th>
+                        Starting Time
+                    </th>
+                    <th>
+                        Ending Time
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <button type="button" class="CreateAuction">Create New Auction</button>
+            </thead>
+            <tbody>
+
+                @foreach (var Auction in Model)
+                {
+                    <tr>
+                        <td>
+                            @Auction.Title
+                        </td>
+                        <td>
+                            @Auction.Description
+                        </td>
+                        <td>
+                            @Auction.ActualAmount
+                        </td>
+                        <td>
+                            @Auction.StartingTime
+                        </td>
+                        <td>
+                            @Auction.EndingTime
+                        </td>
+                        <td>
+                            <button type="button" class="editbtn btn btn-primary" data-ID="@Auction.ID">Edit</button>
+                            <button type="button" class="deletebtn btn btn-danger" data-ID="@Auction.ID">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="button" class="CreateAuction btn btn-success">Create New Auction</button>
+    </div>
+
+    <div id="actionContainer">
+
+    </div>
 </div>
 
-<div id="actionContainer">
-
-</div>
 <script>
     $(".CreateAuction").click(function () {
         $.ajax({
