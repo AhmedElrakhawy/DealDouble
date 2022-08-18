@@ -3,60 +3,102 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div id="tableContainer">
+    <h2>Index</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    ActualAmount
+                </th>
+                <th>
+                    Starting Time
+                </th>
+                <th>
+                    Ending Time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-<table>
-    <thead>
-        <tr>
-            <th>
-                Title
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                ActualAmount
-            </th>
-            <th>
-                Starting Time
-            </th>
-            <th>
-                Ending Time
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null)
-        {
-
-        foreach (var Auction in Model)
-        {
-        <tr>
-            <td>
-                @Auction.Title
-            </td>
-            <td>
-                @Auction.Description
-            </td>
-            <td>
-                @Auction.ActualAmount
-            </td>
-            <td>
-                @Auction.StartingTime
-            </td>
-            <td>
-                @Auction.EndingTime
-            </td>
-            <td>
-                <a class="btn btn-danger" href="@Url.Action("Edit","Auctions",new { ID = Auction.ID })">Edit</a>
-                <a class="btn btn-danger" href="@Url.Action("Delete","Auctions",new { ID = Auction.ID })">Delete</a>
-            </td>
-        </tr>
+            @foreach (var Auction in Model)
+            {
+                <tr>
+                    <td>
+                        @Auction.Title
+                    </td>
+                    <td>
+                        @Auction.Description
+                    </td>
+                    <td>
+                        @Auction.ActualAmount
+                    </td>
+                    <td>
+                        @Auction.StartingTime
+                    </td>
+                    <td>
+                        @Auction.EndingTime
+                    </td>
+                    <td>
+                        <button type="button" class="editbtn" data-ID="@Auction.ID">Edit</button>
+                        <button type="button" class="deletebtn" data-ID="@Auction.ID">Delete</button>
+                    </td>
+                </tr>
             }
+        </tbody>
+    </table>
+    <button type="button" class="CreateAuction">Create New Auction</button>
+</div>
+
+<div id="actionContainer">
+
+</div>
+<script>
+    $(".CreateAuction").click(function () {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("Create","Auctions")"
+        }).done(function (Response) {
+            $("#actionContainer").html(Response);
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        });
+    });
+
+    $(".editbtn").click(function () {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("Edit","Auctions")",
+            data: {
+                ID: $(this).attr('data-ID')
+            }
+        }).done(function (response) {
+            $("#actionContainer").html(response);
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        })
+    });
+    $(".deletebtn").click(function () {
+        var Result = confirm("Are You Want To Delete This Auction ? ")
+        if (Result) {
+            debugger;
+            $.ajax({
+           url: "@Url.Action("Delete","Auctions")",
+           type: "Post",
+            data: {
+                ID: $(this).attr('data-ID')
+            }
+         }).done(function (response) {
+             $("#tableContainer").html(response);
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        })
         }
-        else
-        {
-            <h2>No Auctions Exist</h2>
-        }
-    </tbody>
-</table>
+    });
+</script>

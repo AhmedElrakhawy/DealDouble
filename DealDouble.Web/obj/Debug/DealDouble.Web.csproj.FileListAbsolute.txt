@@ -28,6 +28,8 @@ D:\My work\Projects\DealDouble\DealDouble.Web\bin\roslyn\vbc.rsp
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\roslyn\VBCSCompiler.exe
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\roslyn\VBCSCompiler.exe.config
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\Antlr3.Runtime.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\EntityFramework.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\EntityFramework.SqlServer.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\Microsoft.AspNet.Identity.Core.dll
@@ -54,6 +56,9 @@ D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.WebPages.Deployment
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.WebPages.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.WebPages.Razor.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\WebGrease.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.pdb
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.Helpers.xml
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.Mvc.xml
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\System.Web.Optimization.xml
@@ -78,15 +83,10 @@ D:\My work\Projects\DealDouble\DealDouble.Web\bin\Microsoft.Owin.Security.Twitte
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\Microsoft.Owin.Security.OAuth.xml
 D:\My work\Projects\DealDouble\DealDouble.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.pdb
+D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll.config
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.csproj.AssemblyReference.cache
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.csproj.CoreCompileInputs.cache
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.csproj.CopyComplete
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.dll
 D:\My work\Projects\DealDouble\DealDouble.Web\obj\Debug\DealDouble.Web.pdb
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.dll
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Entities.pdb
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.dll
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Services.pdb
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.pdb
-D:\My work\Projects\DealDouble\DealDouble.Web\bin\DealDouble.Data.dll.config

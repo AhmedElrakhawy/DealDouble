@@ -16,9 +16,10 @@ namespace DealDouble.Entities
         public string ImageURL { get; set; }
         public string Description { get; set; }
         public decimal ActualAmount { get; set; }
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartingTime { get; set; }
-
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndingTime { get; set; }
     }

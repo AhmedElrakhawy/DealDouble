@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e0e630d3-796a-4f26-987d-dc360b3b7529": {
+      "ProjectGuid": "e0e630d3-796a-4f26-987d-dc360b3b7529",
+      "DisplayName": "DealDouble.Web",
+      "ColorIndex": 0
+    },
+    "7ea8f337-8814-4e3a-bb7f-19139714b5a3": {
+      "ProjectGuid": "7ea8f337-8814-4e3a-bb7f-19139714b5a3",
+      "DisplayName": "DealDouble.Services",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

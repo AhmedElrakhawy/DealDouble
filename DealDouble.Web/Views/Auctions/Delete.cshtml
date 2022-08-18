@@ -5,11 +5,7 @@
 
 <form method="post" >
     <h2>Do you realy want to delete this Auction ? </h2>
-    <button type="submit">
-        Yes
-    </button>
-    <button type="submit">
-        No
-    </button>
+    <a class="btn btn-danger"  href="@Url.Action("Delete","Auctions",Model)">Yes</a>
+    <a class="btn btn-default" href="@Url.Action("Index","Auctions")">No</a>
 </form>
 

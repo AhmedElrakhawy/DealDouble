@@ -1,7 +1,7 @@
 ﻿@model DealDouble.Entities.Auction
 <h2>Create Auction</h2>
 
-<form method="post">
+<form method="post" id="CreateData">
     <label for="Title">
         Title
     </label>
@@ -20,12 +20,27 @@
     <label for="StartingTime">
         StartingTime
     </label>
-    <input type="datetime" name="StartingTime" />
+    <input type="date" name="StartingTime" />
     <hr />
     <label for="EndingTime">
         EndingTime
     </label>
-    <input type="datetime" name="EndingTime" />
+    <input type="date" name="EndingTime" />
     <hr />
-    <button>Create</button>
+    <button type="button" id="saveBtn">Create</button>
 </form>
+
+<script>
+    $("#saveBtn").click(function () {
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("Create" , "Auctions")",
+            data: $("#CreateData").serialize()
+        }).done(function (response) {
+            $("#actionContainer").html("");
+            $("#tableContainer").html(response);
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("FAIL");
+        });
+    });
+</script>
