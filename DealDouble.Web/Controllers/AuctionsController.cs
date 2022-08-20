@@ -1,5 +1,6 @@
 ﻿using DealDouble.Entities;
 using DealDouble.Services;
+using DealDouble.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,18 @@ namespace DealDouble.Web.Controllers
         AuctionsService AuctionsService = new AuctionsService();
         public ActionResult Index()
         {
-            var Auctions = AuctionsService.GetAllAuctions();
+            var Model = new AuctionsListViewModel();
+            Model.Auctions = AuctionsService.GetAllAuctions();
+            Model.PageTitle = "Auctions";
+            Model.PageDescription = "Auctions Listing Page";
 
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView(Auctions);
-            }
-            else
-            {
-            return View(Auctions);
-            }
+            return View(Model);
+        }
+        public ActionResult AuctionsTable()
+        {
+            var Model = new AuctionsListViewModel();
+            Model.Auctions = AuctionsService.GetAllAuctions();
+            return PartialView(Model);
         }
         public ActionResult Create()
         {
@@ -32,7 +35,7 @@ namespace DealDouble.Web.Controllers
         public ActionResult Create(Auction auction)
         {
             AuctionsService.SaveAuction(auction);
-            return RedirectToAction("Index");
+            return RedirectToAction("AuctionsTable");
         }
         public ActionResult Edit(int ID)
         {
@@ -43,18 +46,23 @@ namespace DealDouble.Web.Controllers
         public ActionResult Edit(Auction auction)
         {
             AuctionsService.UpdateAuction(auction);
-            return RedirectToAction("Index");
+            return RedirectToAction("AuctionsTable");
         }
-        public ActionResult Delete(int ID)
-        {
-            var Auction = AuctionsService.GetAuctionByID(ID);
-            return View(Auction);
-        }
+
         [HttpPost]
         public ActionResult Delete(Auction auction)
         {
             AuctionsService.DeleteAuction(auction);
-            return RedirectToAction("Index");
+            return RedirectToAction("AuctionsTable");
+        }
+        [HttpGet]
+        public ActionResult Details(int ID)
+        {
+            var Model = new DetailsViewModel();
+            Model.PageTitle = "Auction Details";
+            Model.PageDescription = "Auction Details Page";
+            Model.auction = AuctionsService.GetAuctionByID(ID);
+            return View(Model);
         }
     }
 }

@@ -1,66 +1,42 @@
-﻿@model List<DealDouble.Entities.Auction>
-@{
-    ViewBag.Title = "Index";
-}
+﻿
+<div class="row container">
+    <div class="col-lg-12 m-2">
+        <div class="float-left">
+            <h2>Auctions</h2>
+        </div>
+        <div class="float-right">
+            <button type="button" class="CreateAuction btn btn-success">Create New Auction</button>
+        </div>
+        <div id="tableContainer">
+            @{Html.RenderAction("AuctionsTable"); }
+        </div>
+        <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="actionContainer">
 
-<div class="row">
-    <div class="col-lg-12" id="tableContainer">
-        <h2>Auctions</h2>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        Title
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                    <th>
-                        ActualAmount
-                    </th>
-                    <th>
-                        Starting Time
-                    </th>
-                    <th>
-                        Ending Time
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
+                </div>
+            </div>
+        </div>
 
-                @foreach (var Auction in Model)
-                {
-                    <tr>
-                        <td>
-                            @Auction.Title
-                        </td>
-                        <td>
-                            @Auction.Description
-                        </td>
-                        <td>
-                            @Auction.ActualAmount
-                        </td>
-                        <td>
-                            @Auction.StartingTime
-                        </td>
-                        <td>
-                            @Auction.EndingTime
-                        </td>
-                        <td>
-                            <button type="button" class="editbtn btn btn-primary" data-ID="@Auction.ID">Edit</button>
-                            <button type="button" class="deletebtn btn btn-danger" data-ID="@Auction.ID">Delete</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <button type="button" class="CreateAuction btn btn-success">Create New Auction</button>
-    </div>
-
-    <div id="actionContainer">
-
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this Auction ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="mDeletebtn" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <script>
     $(".CreateAuction").click(function () {
@@ -69,39 +45,23 @@
             url: "@Url.Action("Create","Auctions")"
         }).done(function (Response) {
             $("#actionContainer").html(Response);
+            $("#FormModal").modal('toggle');
         }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
             alert("FAIL");
         });
     });
-
-    $(".editbtn").click(function () {
-        $.ajax({
-            type: "Get",
-            url: "@Url.Action("Edit","Auctions")",
-            data: {
-                ID: $(this).attr('data-ID')
-            }
-        }).done(function (response) {
-            $("#actionContainer").html(response);
-        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
-            alert("FAIL");
-        })
-    });
-    $(".deletebtn").click(function () {
-        var Result = confirm("Are You Want To Delete This Auction ? ")
-        if (Result) {
-            debugger;
-            $.ajax({
+    $("#mDeletebtn").click(function () {
+      $.ajax({
            url: "@Url.Action("Delete","Auctions")",
            type: "Post",
             data: {
-                ID: $(this).attr('data-ID')
+                ID: $(this).attr('data-recordID')
             }
          }).done(function (response) {
              $("#tableContainer").html(response);
+             $("#deleteModal").modal('toggle');
         }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
             alert("FAIL");
         })
-        }
     });
 </script>

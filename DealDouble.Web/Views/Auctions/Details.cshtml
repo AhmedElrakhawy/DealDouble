@@ -1,0 +1,36 @@
+﻿@model DealDouble.Web.ViewModels.DetailsViewModel
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card mt-4" >
+            <img class="card-img-top img-fluid" src="~/Content/Images/nullPhoto.png" alt="">
+            <div class="card-body">
+                <h3 class="card-title">@Model.auction.Title</h3>
+                <h4>
+                    $@Model.auction.ActualAmount
+                </h4>
+                <p class="card-text">@Model.auction.Description</p>
+                <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            </div>
+            <div class="card card-outline-secondary my-4">
+                <div class="card-header">Product Review</div>
+                <div class="card-body">
+                    <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                    <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
+                    <hr />
+                    <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                    <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
+                    <hr />
+                    <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                    <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
+                    <hr />
+                    <a href="#" class="btn btn-success" >Leave a Review</a>
+                </div>
+            </div>   
+        </div>
+
+    </div>
+
+</div>

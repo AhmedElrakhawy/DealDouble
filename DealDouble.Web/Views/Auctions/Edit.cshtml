@@ -1,35 +1,56 @@
 ﻿@model DealDouble.Entities.Auction
-<h2>Edit Auction</h2>
 
+<div class="modal-header">
+    <h5 class="modal-title">Edit Auction</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <form method="post" id="editForm">
-    <input type="hidden" name="ID" value="@Model.ID" />
-    <label for="Title">
-        Title
-    </label>
-    <input name="Title" value="@Model.Title" placeholder="@Model.Title" />
-    <hr />
-    <label for="Description">
-        Description
-    </label>
-    <input name="Description" value="@Model.Description" placeholder="@Model.Description" />
-    <hr />
-    <label for="ActualAmount">
-        ActualAmount
-    </label>
-    <input name="ActualAmount" value="@Model.ActualAmount" placeholder="@Model.ActualAmount" />
-    <hr />
-    <label for="StartingTime">
-        StartingTime
-    </label>
-    <input name="StartingTime" value="@Model.StartingTime" placeholder="@Model.StartingTime" />
-    <hr />
-    <label for="EndingTime">
-        EndingTime
-    </label>
-    <input name="EndingTime" value="@Model.EndingTime" placeholder="@Model.EndingTime" />
-    <hr />
-    <button type="button" id="saveBtn">Save</button>
+    <div class="modal-body">
+        <input type="hidden" name="ID" value="@Model.ID" />
+        <div class="form-group">
+            <label for="Title">
+                Title
+            </label>
+            <input class="form-control" name="Title" value="@Model.Title" />
+        </div>
+
+        <div class="form-group">
+            <label for="Description">
+                Description
+            </label>
+            <input class="form-control" name="Description" value="@Model.Description"/>
+        </div>
+
+        <div class="form-group">
+            <label for="ActualAmount">
+                ActualAmount
+            </label>
+            <input class="form-control" name="ActualAmount" value="@Model.ActualAmount"/>
+        </div>
+
+        <div class="form-group">
+            <label for="StartingTime">
+                StartingTime
+            </label>
+            <input class="form-control" name="StartingTime" value="@Model.StartingTime"/>
+        </div>
+
+        <div class="form-group">
+            <label for="EndingTime">
+                EndingTime
+            </label>
+            <input class="form-control" name="EndingTime" value="@Model.EndingTime"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="saveBtn">Save</button>
+    </div>
 </form>
+
 
 <script>
     $("#saveBtn").click(function () {
@@ -39,7 +60,7 @@
             url: "@Url.Action("Edit","Auctions")",
             data: $("#editForm").serialize()
         }).done(function (response) {
-            $("#actionContainer").html("");
+            $("#FormModal").modal('toggle');
             $("#tableContainer").html(response);
         }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("FAIL");
