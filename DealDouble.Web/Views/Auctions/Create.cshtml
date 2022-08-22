@@ -1,4 +1,4 @@
-﻿@model DealDouble.Entities.Auction
+﻿@model DealDouble.Web.ViewModels.CreateAuctionViewModel
 
 
 <div class="modal-header">
@@ -43,6 +43,14 @@
             </label>
             <input class="form-control" name="EndingTime" />
         </div>
+        <div class="form-group">
+            <label for="AuctionPictures">
+                AuctionPictures
+            </label>
+            <input id="auctionPicture" type="file" multiple class="form-control" name="AuctionPictures" />
+            <div id="PicturesArea"></div>
+            <input type="hidden" name="AuctionPictures" id="PictureIDs" />
+        </div>
 
     </div>
     <div class="modal-footer">
@@ -63,6 +71,35 @@
             $("#tableContainer").html(response);
         }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("FAIL");
+        });
+    });
+    $("#auctionPicture").change(function () {
+        var Pictures = this;
+        var PicData = new FormData();
+        var totalfile = Pictures.files.length;
+        for (var i = 0; i < totalfile; i++) {
+            PicData.append("Picture", Pictures.files[i]);
+        }
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("UploadPictures","Shared")",
+            data: PicData,
+            dataType:"json",
+            contentType: false,
+            processData: false
+        }).done(function (responses) {
+            debugger;
+            var PicIDs = "";
+            var Total = responses.length;
+            for (var i = 0; i < Total; i++) {
+                var picResponse = responses[i];
+                var ImgHTML = "<img class='img-fluid' src='/Content/Images/" + picResponse.URL + "'/>";
+                $("#PicturesArea").append(ImgHTML);
+                PicIDs = PicIDs + "," + picResponse.ID;
+            }
+            $("#PictureIDs").val(PicIDs);
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
         });
     });
 </script>

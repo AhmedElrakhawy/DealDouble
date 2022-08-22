@@ -16,3 +16,4 @@ D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.csproj.
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.csproj.CopyComplete
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.dll
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.pdb
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AuctionPictures.resources

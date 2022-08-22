@@ -32,8 +32,17 @@ namespace DealDouble.Web.Controllers
             return PartialView();
         }
         [HttpPost]
-        public ActionResult Create(Auction auction)
+        public ActionResult Create(CreateAuctionViewModel Model)
         {
+            var auction = new Auction();
+            auction.Title = Model.Title;
+            auction.ActualAmount = Model.ActualAmount;
+            auction.Description = Model.Description;
+            auction.StartingTime = Model.StartingTime;
+            auction.EndingTime = Model.EndingTime;
+            var PicturesIDs = Model.AuctionPictures.Split(new char[] {','},StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
+            auction.AuctionPictures = new List<AuctionPicture>();
+            auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
             AuctionsService.SaveAuction(auction);
             return RedirectToAction("AuctionsTable");
         }

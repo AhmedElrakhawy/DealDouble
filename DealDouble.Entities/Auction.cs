@@ -9,11 +9,9 @@ using System.Web.ModelBinding;
 
 namespace DealDouble.Entities
 {
-    public class Auction
+    public class Auction : BaseEntity
     {
-        public int ID { get; set; }
         public string Title { get; set; }
-        public string ImageURL { get; set; }
         public string Description { get; set; }
         public decimal ActualAmount { get; set; }
         [DataType(DataType.Date)]
@@ -22,5 +20,6 @@ namespace DealDouble.Entities
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndingTime { get; set; }
+        public List<AuctionPicture> AuctionPictures { get; set; }
     }
 }
