@@ -36,7 +36,9 @@
         </div>
     </div>
 </div>
-
+<div id="ImageTemplate" style="display:none">
+    <img class="image img-fluid" src="" data-id=""/>
+</div>
 
 <script>
     $(".CreateAuction").click(function () {
@@ -64,4 +66,9 @@
             alert("FAIL");
         })
     });
+    function RemoveImagesOnClick() {
+        $("#PicturesArea .image").click(function () {
+            $(this).remove();
+        });
+    }
 </script>

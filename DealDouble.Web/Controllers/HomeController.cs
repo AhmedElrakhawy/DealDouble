@@ -16,7 +16,7 @@ namespace DealDouble.Web.Controllers
             var Model = new AuctionsViewModel();
             Model.PageTitle = "Home Page";
             Model.PageDescription = "Home Page";
-            Model.AllAuctions = auctionsService.GetAllAuctions();
+            Model.AllAuctions = auctionsService.GetAllAuctionsWithPictures();
             Model.promotedAuctions = auctionsService.GetpromotedAuctions();
             return View(Model);
         }

@@ -15,7 +15,6 @@ namespace DealDouble.Web.ViewModels
     public class AuctionsListViewModel : PageViewModel
     {
         public List<Auction> Auctions { get; set; }
-
     }
     public class DetailsViewModel : PageViewModel
     {
@@ -29,5 +28,7 @@ namespace DealDouble.Web.ViewModels
         public DateTime StartingTime { get; set; }
         public DateTime EndingTime { get; set; }
         public string AuctionPictures { get; set; }
+        public int CategoryID { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace DealDouble.Entities
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndingTime { get; set; }
-        public List<AuctionPicture> AuctionPictures { get; set; }
+        public virtual List<AuctionPicture> AuctionPictures { get; set; }
+        public int CategoryID { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

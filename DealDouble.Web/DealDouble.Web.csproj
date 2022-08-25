@@ -185,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\shop-homepage.css" />
-    <Content Include="Content\Images\nullPhoto.png" />
+    <Content Include="Content\Images\default.jpg" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />

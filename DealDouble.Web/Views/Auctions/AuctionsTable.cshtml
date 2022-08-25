@@ -10,6 +10,9 @@
                         Title
                     </th>
                     <th>
+                        Category
+                    </th>
+                    <th>
                         Description
                     </th>
                     <th>
@@ -30,27 +33,30 @@
 
                 @foreach (var Auction in Model.Auctions)
                 {
-                    <tr>
-                        <td>
-                            @Auction.Title
-                        </td>
-                        <td>
-                            @Auction.Description
-                        </td>
-                        <td>
-                            @Auction.ActualAmount
-                        </td>
-                        <td>
-                            @Auction.StartingTime
-                        </td>
-                        <td>
-                            @Auction.EndingTime
-                        </td>
-                        <td>
-                            <button type="button" class="editbtn btn btn-primary" data-ID="@Auction.ID" data-toggle="modal" data-target="#FormModal">Edit</button>
-                            <button type="button" class="deletebtn btn btn-danger" data-ID="@Auction.ID" data-toggle="modal" data-target="#deleteModal">Delete</button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Auction.Title
+                    </td>
+                    <td>
+                        @Auction.Category.Name
+                    </td>
+                    <td>
+                        @Auction.Description
+                    </td>
+                    <td>
+                        @Auction.ActualAmount
+                    </td>
+                    <td>
+                        @Auction.StartingTime
+                    </td>
+                    <td>
+                        @Auction.EndingTime
+                    </td>
+                    <td>
+                        <button type="button" class="editbtn btn btn-primary" data-ID="@Auction.ID" data-toggle="modal" data-target="#FormModal">Edit</button>
+                        <button type="button" class="deletebtn btn btn-danger" data-ID="@Auction.ID" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
