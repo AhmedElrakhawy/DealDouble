@@ -10,7 +10,7 @@ namespace DealDouble.Web.Controllers
 {
     public class HomeController : Controller
     {
-        AuctionsService auctionsService = new AuctionsService();
+        categoriesService auctionsService = new categoriesService();
         public ActionResult Index()
         {
             var Model = new AuctionsViewModel();

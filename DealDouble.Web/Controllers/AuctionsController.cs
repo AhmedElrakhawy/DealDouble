@@ -11,7 +11,7 @@ namespace DealDouble.Web.Controllers
 {
     public class AuctionsController : Controller
     {
-        AuctionsService AuctionsService = new AuctionsService();
+        categoriesService AuctionsService = new categoriesService();
         CategoriesService categoriesService = new CategoriesService();
         public ActionResult Index()
         {
@@ -44,20 +44,48 @@ namespace DealDouble.Web.Controllers
             auction.StartingTime = Model.StartingTime;
             auction.EndingTime = Model.EndingTime;
             auction.CategoryID = Model.CategoryID;
-            var PicturesIDs = Model.AuctionPictures.Split(new char[] {','},StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
-            auction.AuctionPictures = new List<AuctionPicture>();
-            auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+            if (string.IsNullOrEmpty(Model.AuctionPictures))
+            {
+                var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
+                auction.AuctionPictures = new List<AuctionPicture>();
+                auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+            }
             AuctionsService.SaveAuction(auction);
             return RedirectToAction("AuctionsTable");
         }
         public ActionResult Edit(int ID)
         {
+            var Model = new EditAuctionViewModel();
             var Auction = AuctionsService.GetAuctionByID(ID);
-            return PartialView(Auction);
+            Model.ID = Auction.ID;
+            Model.Title = Auction.Title;
+            Model.Description = Auction.Description;
+            Model.StartingTime = Auction.StartingTime;
+            Model.EndingTime = Auction.EndingTime;
+            Model.CategoryID = Auction.CategoryID;
+            Model.Categories = categoriesService.GetAllCategories();
+            Model.ActualAmount = Auction.ActualAmount;
+            Model.AuctionPicturesList = Auction.AuctionPictures;
+            return PartialView(Model);
         }
         [HttpPost]
-        public ActionResult Edit(Auction auction)
+        public ActionResult Edit(EditAuctionViewModel Model)
         {
+            var auction = new Auction();
+            auction.Title = Model.Title;
+            auction.Description = Model.Description;
+            auction.ID = Model.ID;
+            auction.StartingTime = Model.StartingTime;
+            auction.EndingTime = Model.EndingTime;
+            auction.AuctionPictures = Model.AuctionPicturesList;
+            auction.ActualAmount = Model.ActualAmount;
+            auction.CategoryID = Model.CategoryID;
+            if (!string.IsNullOrEmpty(Model.AuctionPictures))
+            {
+                var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
+                auction.AuctionPictures = new List<AuctionPicture>();
+                auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+            }
             AuctionsService.UpdateAuction(auction);
             return RedirectToAction("AuctionsTable");
         }

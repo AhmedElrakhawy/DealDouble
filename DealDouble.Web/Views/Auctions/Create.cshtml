@@ -60,7 +60,7 @@
                 AuctionPictures
             </label>
             <input id="auctionPicture" type="file" multiple class="form-control" name="AuctionPictures" />
-            <div id="PicturesArea"></div>
+            <div id="PicturesArea" class="mt-2"></div>
             <input type="hidden" name="AuctionPictures" id="PictureIDs" />
         </div>
 
@@ -116,12 +116,4 @@
             alert("Fail");
         });
     });
-    function AttachNewImage(PicURL, PicID) {
-        debugger;
-        var $NewImgHTML = $("#ImageTemplate").clone();
-        $NewImgHTML.find(".image").attr("src", "/Content/Images/" + PicURL);
-        $NewImgHTML.find(".image").attr("data-id", PicID);
-        $("#PicturesArea").append($NewImgHTML.html());
-        RemoveImagesOnClick();
-    }
 </script>

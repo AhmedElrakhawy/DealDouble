@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuctionsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AuctionsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CategoriesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\shop-homepage.css" />
@@ -263,6 +265,10 @@
     <Content Include="Views\Auctions\Index.cshtml" />
     <Content Include="Views\Auctions\Details.cshtml" />
     <Content Include="Views\Auctions\AuctionsTable.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\CategoriesTable.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

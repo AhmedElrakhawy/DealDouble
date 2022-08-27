@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DealDouble.Services
 {
-    public class AuctionsService
+    public class categoriesService
     {
         public List<Auction> GetAllAuctionsWithCategories()
         {

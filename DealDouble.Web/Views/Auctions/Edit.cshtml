@@ -1,4 +1,4 @@
-﻿@model DealDouble.Entities.Auction
+﻿@model DealDouble.Web.ViewModels.EditAuctionViewModel
 
 <div class="modal-header">
     <h5 class="modal-title">Edit Auction</h5>
@@ -17,31 +17,60 @@
         </div>
 
         <div class="form-group">
+            <label for="Category">
+                Category
+            </label>
+            <select class="form-control" name="CategoryID">
+                @foreach (var Category in Model.Categories)
+                {
+                    var selected = Category.ID == Model.CategoryID ? "selected" : string.Empty;
+                    <option value="@Category.ID" @selected>@Category.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="Description">
                 Description
             </label>
-            <input class="form-control" name="Description" value="@Model.Description"/>
+            <input class="form-control" name="Description" value="@Model.Description" />
         </div>
 
         <div class="form-group">
             <label for="ActualAmount">
                 ActualAmount
             </label>
-            <input class="form-control" name="ActualAmount" value="@Model.ActualAmount"/>
+            <input class="form-control" name="ActualAmount" value="@Model.ActualAmount" />
         </div>
 
         <div class="form-group">
             <label for="StartingTime">
                 StartingTime
             </label>
-            <input class="form-control" name="StartingTime" value="@Model.StartingTime"/>
+            <input class="form-control" name="StartingTime" value="@Model.StartingTime" />
         </div>
 
         <div class="form-group">
             <label for="EndingTime">
                 EndingTime
             </label>
-            <input class="form-control" name="EndingTime" value="@Model.EndingTime"/>
+            <input class="form-control" name="EndingTime" value="@Model.EndingTime" />
+        </div>
+        <div class="form-group">
+            <label for="AuctionPictures">
+                AuctionPictures
+            </label>
+            <input id="auctionPicture" type="file" multiple class="form-control" name="AuctionPictures" />
+            <div id="PicturesArea" class="mt-2">
+                @if (Model.AuctionPicturesList != null && Model.AuctionPicturesList.Count > 0)
+                {
+                    foreach (var Picture in Model.AuctionPicturesList)
+                    {
+                        <img class="image img-thumbnail" src="/Content/Images/@Picture.Picture.URL" style="width:200px;height:200px;"/>
+                    }
+                }
+            </div>
+            <input type="hidden" name="AuctionPictures" id="PictureIDs" />
         </div>
 
     </div>
@@ -53,8 +82,14 @@
 
 
 <script>
+    RemoveImagesOnClick();
     $("#saveBtn").click(function () {
-        debugger;
+        var DataIDs = [];
+        $("#PicturesArea .image").each(function () {
+            var ImageID = $(this).attr("data-id");
+            DataIDs.push(ImageID);
+        });
+        $("#PictureIDs").val(DataIDs.join());
         $.ajax({
             type: "Post",
             url: "@Url.Action("Edit","Auctions")",
@@ -64,6 +99,31 @@
             $("#tableContainer").html(response);
         }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
             alert("FAIL");
+        });
+    });
+    $("#auctionPicture").change(function () {
+        debugger;
+        var Pictures = this;
+        var PicData = new FormData();
+        var totalfile = Pictures.files.length;
+        for (var i = 0; i < totalfile; i++) {
+            PicData.append("Picture", Pictures.files[i]);
+        }
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("UploadPictures","Shared")",
+            data: PicData,
+            dataType:"json",
+            contentType: false,
+            processData: false
+        }).done(function (responses) {
+            var Total = responses.length;
+            for (var i = 0; i < Total; i++) {
+                var picResponse = responses[i];
+                AttachNewImage(picResponse.URL, picResponse.ID);
+            }
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
         });
     });
 </script>
