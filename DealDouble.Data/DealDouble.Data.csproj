@@ -70,6 +70,18 @@
     <Compile Include="Migrations\202208230418249_AddingCategoriesTable.Designer.cs">
       <DependentUpon>202208230418249_AddingCategoriesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208310141084_AddingAuctionsPictureIDToAuctionsTable.cs" />
+    <Compile Include="Migrations\202208310141084_AddingAuctionsPictureIDToAuctionsTable.Designer.cs">
+      <DependentUpon>202208310141084_AddingAuctionsPictureIDToAuctionsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208310155066_UndoChanges.cs" />
+    <Compile Include="Migrations\202208310155066_UndoChanges.Designer.cs">
+      <DependentUpon>202208310155066_UndoChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208310326168_auctionvalidation.cs" />
+    <Compile Include="Migrations\202208310326168_auctionvalidation.Designer.cs">
+      <DependentUpon>202208310326168_auctionvalidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +120,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208230418249_AddingCategoriesTable.resx">
       <DependentUpon>202208230418249_AddingCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208310141084_AddingAuctionsPictureIDToAuctionsTable.resx">
+      <DependentUpon>202208310141084_AddingAuctionsPictureIDToAuctionsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208310155066_UndoChanges.resx">
+      <DependentUpon>202208310155066_UndoChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208310326168_auctionvalidation.resx">
+      <DependentUpon>202208310326168_auctionvalidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

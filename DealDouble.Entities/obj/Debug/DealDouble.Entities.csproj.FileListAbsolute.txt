@@ -3,4 +3,3 @@ D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\DealDouble.Entities
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.csproj.CoreCompileInputs.cache
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.dll
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.pdb
-D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.csproj.AssemblyReference.cache

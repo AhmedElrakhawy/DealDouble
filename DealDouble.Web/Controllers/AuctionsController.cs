@@ -13,19 +13,28 @@ namespace DealDouble.Web.Controllers
     {
         categoriesService AuctionsService = new categoriesService();
         CategoriesService categoriesService = new CategoriesService();
-        public ActionResult Index()
+        public ActionResult Index(int? CategoryID , string SearchTerm,int? PageNum)
         {
             var Model = new AuctionsListViewModel();
             Model.Auctions = AuctionsService.GetAllAuctions();
+            Model.Categories = categoriesService.GetAllCategories();
             Model.PageTitle = "Auctions";
             Model.PageDescription = "Auctions Listing Page";
-
+            Model.CategoryID = CategoryID;
+            Model.SearchTerm = SearchTerm;
+            Model.PageNum = PageNum;
             return View(Model);
         }
-        public ActionResult AuctionsTable()
+        public ActionResult AuctionsTable(string SearchTerm,int? CategoryID,int? PageNum)
         {
+            var PageSize = 2;
             var Model = new AuctionsListViewModel();
-            Model.Auctions = AuctionsService.GetAllAuctionsWithCategories();
+            Model.Auctions = AuctionsService.SearchAuctions(CategoryID, SearchTerm, PageNum, PageSize);
+            var AuctionCount = AuctionsService.GetAuctionsCount(SearchTerm,CategoryID);
+            Model.Pager = new Pager(AuctionCount, PageNum, PageSize);
+            Model.Categories = categoriesService.GetAllCategories();
+            Model.CategoryID = CategoryID;
+            Model.SearchTerm = SearchTerm;
             return PartialView(Model);
         }
         public ActionResult Create()
@@ -35,23 +44,32 @@ namespace DealDouble.Web.Controllers
             return PartialView(Model);
         }
         [HttpPost]
-        public ActionResult Create(CreateAuctionViewModel Model)
+        public JsonResult Create(CreateAuctionViewModel Model)
         {
-            var auction = new Auction();
-            auction.Title = Model.Title;
-            auction.ActualAmount = Model.ActualAmount;
-            auction.Description = Model.Description;
-            auction.StartingTime = Model.StartingTime;
-            auction.EndingTime = Model.EndingTime;
-            auction.CategoryID = Model.CategoryID;
-            if (string.IsNullOrEmpty(Model.AuctionPictures))
+            JsonResult result = new JsonResult();
+            if (ModelState.IsValid)
             {
-                var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
-                auction.AuctionPictures = new List<AuctionPicture>();
-                auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+                var auction = new Auction();
+                auction.Title = Model.Title;
+                auction.ActualAmount = Model.ActualAmount;
+                auction.Description = Model.Description;
+                auction.StartingTime = Model.StartingTime;
+                auction.EndingTime = Model.EndingTime;
+                auction.CategoryID = Model.CategoryID;
+                if (string.IsNullOrEmpty(Model.AuctionPictures))
+                {
+                    var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
+                    auction.AuctionPictures = new List<AuctionPicture>();
+                    auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+                }
+                AuctionsService.SaveAuction(auction);
+                result.Data = new { Success = true };
             }
-            AuctionsService.SaveAuction(auction);
-            return RedirectToAction("AuctionsTable");
+            else
+            {
+                result.Data = new { Success = false , Error = "Unable to Save Auction please Enter a valid Fields" };
+            }
+            return result;
         }
         public ActionResult Edit(int ID)
         {
@@ -84,7 +102,7 @@ namespace DealDouble.Web.Controllers
             {
                 var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
                 auction.AuctionPictures = new List<AuctionPicture>();
-                auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { PictureID = x }).ToList());
+                auction.AuctionPictures.AddRange(PicturesIDs.Select(x => new AuctionPicture() { AuctionID = auction.ID, PictureID = x }).ToList());
             }
             AuctionsService.UpdateAuction(auction);
             return RedirectToAction("AuctionsTable");

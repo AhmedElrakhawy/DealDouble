@@ -40,11 +40,31 @@ namespace DealDouble.Services
                 return Context.Auctions.Include(x => x.AuctionPictures.Select(P => P.Picture)).Take(4).ToList();
             }
         }
+
+        public int GetAuctionsCount(string SearchTerm, int? CategoryID)
+        {
+            using (var Context = new DealDoubleDBContext())
+            {
+                var auctions = Context.Auctions.AsQueryable();
+                if (CategoryID.HasValue && CategoryID.Value > 0)
+                {
+                    auctions = auctions.Where(x => x.CategoryID == CategoryID);
+                }
+                if (!string.IsNullOrEmpty(SearchTerm))
+                {
+                    auctions = auctions.Where(x => x.Title.ToLower().Contains(SearchTerm.ToLower()));
+                }
+                return auctions.Count();
+            }
+        }
+
         public Auction GetAuctionByID(int ID)
         {
             using (var Context = new DealDoubleDBContext())
             {
-                return Context.Auctions.Include(x => x.AuctionPictures.Select(P => P.Picture)).FirstOrDefault(x=> x.ID == ID);
+                return Context.Auctions.Include(x => x.AuctionPictures)
+                    .Include(x => x.AuctionPictures.Select(p=> p.Picture))
+                    .Include(c=> c.Category).FirstOrDefault(x=> x.ID == ID);
             }
         }
         public void UpdateAuction(Auction auction)
@@ -52,7 +72,42 @@ namespace DealDouble.Services
             using (var Context = new DealDoubleDBContext())
             {
                 Context.Entry(auction).State = EntityState.Modified;
+                var actualAuction = Context.Auctions.FirstOrDefault(x => x.ID == auction.ID);
+                actualAuction.Title = auction.Title;
+                actualAuction.Description = auction.Description;
+                actualAuction.ActualAmount = auction.ActualAmount;
+                actualAuction.StartingTime = auction.StartingTime;
+                actualAuction.EndingTime = auction.EndingTime;
+                actualAuction.CategoryID = auction.CategoryID;
+                if (auction.AuctionPictures == null)
+                {
+                    
+                }
+                else
+                {
+                    Context.Entry(actualAuction.AuctionPictures).State = EntityState.Modified;
+                }
+                Context.Entry(actualAuction).State = EntityState.Modified;
                 Context.SaveChanges();
+            }
+        }
+        public List<Auction> SearchAuctions(int? CategoryID , string SearchTerm , int? PageNumber, int PageSize)
+        {
+            using (var Context = new DealDoubleDBContext())
+            {
+                var Auctions = Context.Auctions.Include(x => x.Category).AsQueryable();
+                if (CategoryID.HasValue && CategoryID.Value > 0)
+                {
+                    Auctions = Auctions.Where(x => x.CategoryID == CategoryID); 
+                }
+                if (!string.IsNullOrEmpty(SearchTerm))
+                {
+                    Auctions = Auctions.Where(x => x.Title.ToLower().Contains(SearchTerm.ToLower()));
+                }
+                PageNumber = PageNumber ?? 1;
+                int SkipCount = (PageNumber.Value - 1) * PageSize;
+
+                return Auctions.OrderBy(x => x.Title).Skip(SkipCount).Take(PageSize).ToList();
             }
         }
         public void DeleteAuction(Auction auction)

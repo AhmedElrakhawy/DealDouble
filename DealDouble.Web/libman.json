@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "validate-js@2.0.1",
+      "destination": "Content/validate-js/"
+    },
+    {
+      "library": "validate.js@0.13.1",
+      "destination": "Content/validate.js/"
+    }
+  ]
+}
