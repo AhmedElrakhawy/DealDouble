@@ -71,23 +71,13 @@ namespace DealDouble.Services
         {
             using (var Context = new DealDoubleDBContext())
             {
-                Context.Entry(auction).State = EntityState.Modified;
-                var actualAuction = Context.Auctions.FirstOrDefault(x => x.ID == auction.ID);
-                actualAuction.Title = auction.Title;
-                actualAuction.Description = auction.Description;
-                actualAuction.ActualAmount = auction.ActualAmount;
-                actualAuction.StartingTime = auction.StartingTime;
-                actualAuction.EndingTime = auction.EndingTime;
-                actualAuction.CategoryID = auction.CategoryID;
-                if (auction.AuctionPictures == null)
+                var actualAuction = Context.Auctions.Find(auction.ID);
+                Context.AuctionPictures.RemoveRange(actualAuction.AuctionPictures);
+                Context.Entry(actualAuction).CurrentValues.SetValues(auction);
+                if (auction.AuctionPictures != null)
                 {
-                    
+                Context.AuctionPictures.AddRange(auction.AuctionPictures);
                 }
-                else
-                {
-                    Context.Entry(actualAuction.AuctionPictures).State = EntityState.Modified;
-                }
-                Context.Entry(actualAuction).State = EntityState.Modified;
                 Context.SaveChanges();
             }
         }

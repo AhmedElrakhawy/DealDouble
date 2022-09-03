@@ -3,3 +3,16 @@ D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\DealDouble.Entities
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.csproj.CoreCompileInputs.cache
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.dll
 D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.pdb
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\EntityFramework.SqlServer.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\EntityFramework.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.Owin.Security.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Newtonsoft.Json.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\bin\Debug\Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.csproj.CopyComplete
+D:\My work\Projects\DealDouble\DealDouble.Entities\obj\Debug\DealDouble.Entities.csproj.AssemblyReference.cache

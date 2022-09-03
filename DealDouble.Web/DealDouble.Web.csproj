@@ -164,7 +164,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -177,7 +176,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -288,6 +286,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DealDouble.Data\DealDouble.Data.csproj">
+      <Project>{0EE647EC-8448-489B-A207-8E521AC27F85}</Project>
+      <Name>DealDouble.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DealDouble.Entities\DealDouble.Entities.csproj">
       <Project>{9A205B7B-F684-491F-ABEC-5ADA5F4628CA}</Project>
       <Name>DealDouble.Entities</Name>

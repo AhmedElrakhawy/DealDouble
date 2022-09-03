@@ -66,6 +66,7 @@
                 {
                     foreach (var Picture in Model.AuctionPicturesList)
                     {
+                        <input type="hidden" class="Imageurl" value="@Picture.Picture.URL" />
                         <img class="image img-thumbnail" src="/Content/Images/@Picture.Picture.URL" style="width:200px;height:200px;"/>
                     }
                 }
@@ -84,6 +85,7 @@
 <script>
     RemoveImagesOnClick();
     $("#saveBtn").click(function () {
+        debugger;
         var DataIDs = [];
         $("#PicturesArea .image").each(function () {
             var ImageID = $(this).attr("data-id");

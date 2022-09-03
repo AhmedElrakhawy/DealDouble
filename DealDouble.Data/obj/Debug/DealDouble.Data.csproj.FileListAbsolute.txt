@@ -21,3 +21,13 @@ D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrati
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingAuctionsPictureIDToAuctionsTable.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.UndoChanges.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.auctionvalidation.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.Owin.Security.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Newtonsoft.Json.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.userIdentityCustumization.resources

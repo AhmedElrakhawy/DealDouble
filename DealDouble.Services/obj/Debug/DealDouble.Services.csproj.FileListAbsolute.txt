@@ -12,3 +12,12 @@ D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services
 D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.csproj.CopyComplete
 D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.dll
 D:\My work\Projects\DealDouble\DealDouble.Services\obj\Debug\DealDouble.Services.pdb
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.Owin.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.Owin.Security.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Newtonsoft.Json.dll
+D:\My work\Projects\DealDouble\DealDouble.Services\bin\Debug\Owin.dll

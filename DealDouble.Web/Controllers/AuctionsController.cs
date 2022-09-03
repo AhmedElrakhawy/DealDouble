@@ -56,7 +56,7 @@ namespace DealDouble.Web.Controllers
                 auction.StartingTime = Model.StartingTime;
                 auction.EndingTime = Model.EndingTime;
                 auction.CategoryID = Model.CategoryID;
-                if (string.IsNullOrEmpty(Model.AuctionPictures))
+                if (!string.IsNullOrEmpty(Model.AuctionPictures))
                 {
                     var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
                     auction.AuctionPictures = new List<AuctionPicture>();
@@ -95,9 +95,9 @@ namespace DealDouble.Web.Controllers
             auction.ID = Model.ID;
             auction.StartingTime = Model.StartingTime;
             auction.EndingTime = Model.EndingTime;
-            auction.AuctionPictures = Model.AuctionPicturesList;
             auction.ActualAmount = Model.ActualAmount;
             auction.CategoryID = Model.CategoryID;
+            auction.AuctionPictures = Model.AuctionPicturesList;
             if (!string.IsNullOrEmpty(Model.AuctionPictures))
             {
                 var PicturesIDs = Model.AuctionPictures.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToList();
