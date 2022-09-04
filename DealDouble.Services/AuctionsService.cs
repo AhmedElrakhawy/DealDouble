@@ -64,6 +64,8 @@ namespace DealDouble.Services
             {
                 return Context.Auctions.Include(x => x.AuctionPictures)
                     .Include(x => x.AuctionPictures.Select(p=> p.Picture))
+                    .Include(b => b.Bids)
+                    .Include(u => u.Bids.Select(a => a.User))
                     .Include(c=> c.Category).FirstOrDefault(x=> x.ID == ID);
             }
         }

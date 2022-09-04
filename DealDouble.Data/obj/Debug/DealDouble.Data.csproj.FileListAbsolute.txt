@@ -31,3 +31,6 @@ D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Microsoft.Owin.Security
 D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Newtonsoft.Json.dll
 D:\My work\Projects\DealDouble\DealDouble.Data\bin\Debug\Owin.dll
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.userIdentityCustumization.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingBidding.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingBidsReferanceToAuctionsTable.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.ChangingBidAmountDatatype.resources
