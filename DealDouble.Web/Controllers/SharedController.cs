@@ -1,5 +1,7 @@
 ﻿using DealDouble.Entities;
 using DealDouble.Services;
+using DealDouble.Web.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +34,26 @@ namespace DealDouble.Web.Controllers
             }
             JsonData.Data = PicturesJson;
             return JsonData;
+        }
+        public JsonResult LeaveComment(CommentViewModel Model)
+        {
+            var Result = new JsonResult();
+            try
+            {
+                var comment = new Comment();
+                comment.Text = Model.Text;
+                comment.EntityID = Model.EntityID;
+                comment.RecordID = Model.RecordID;
+                comment.PostedOn = DateTime.Now;
+                comment.UserID = User.Identity.GetUserId();
+
+                Result.Data = new { Success = Service.AddingComment(comment) };
+            }
+            catch (Exception ex)
+            {
+                Result.Data = new { Success = false , Message = ex.Message };
+            }
+            return Result;
         }
     }
 }

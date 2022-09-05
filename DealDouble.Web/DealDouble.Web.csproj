@@ -183,6 +183,7 @@
     <Compile Include="ViewModels\AuctionsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CategoriesViewModel.cs" />
+    <Compile Include="ViewModels\SharedViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\vendor\jquery\additional-methods.js" />

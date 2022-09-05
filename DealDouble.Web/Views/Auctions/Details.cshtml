@@ -58,18 +58,31 @@
                     <button type="button" class="btn btn-primary" id="BidBtn">Bid Now</button> 
                 </div>
                 <div class="card card-outline-secondary my-4">
-                    <div class="card-header">Product Review</div>
+                    <div class="card-header">Comments</div>
                     <div class="card-body">
-                        <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
-                        <hr />
-                        <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
-                        <hr />
-                        <p class="card-text">See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        <span class="text-muted">Posted By Anonymous on 12/2/2222</span>
-                        <hr />
-                        <a href="#" class="btn btn-success">Leave a Review</a>
+                        @if (Model.Comments != null && Model.Comments.Count > 0)
+                        {
+                            foreach (var Comment in Model.Comments)
+                            {
+                                <p class="card-text">@Comment.Text</p>
+                                <span class="text-muted">Posted By @Comment.UserID on @Comment.PostedOn</span>
+                                <hr />
+                            }
+
+                        }
+                        else
+                        {
+                            <p class="card-text">No Comments yet...</p>
+                        }
+                        <form id="CommentForm">
+                            <input type="hidden" name="EntityID" value="@Model.EntityID" />
+                            <input type="hidden" name="RecordID" value="@Model.auction.ID" />
+                            <div class="form-group">
+                                <label>Write your Comment</label>
+                                <textarea class="form-control" placeholder="Write Your Comment Here.." rows="3" name="Text"></textarea>
+                            </div>
+                            <button id="CommentBtn" type="button" class="btn btn-success">Submit a Review</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -85,6 +98,23 @@
             data: {
                 ID: '@Model.auction.ID'
             }
+        }).done(function (response) {
+            if (response.Success) {
+                window.location.reload();
+            }
+            else {
+                swal("error", response.Message, "error");
+            }
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            swal("error", "error occured. please try again later..", "error");
+        });
+    });
+
+    $("#CommentBtn").click(function () {
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("LeaveComment", "Shared")",
+            data: $("#CommentForm").serialize()
         }).done(function (response) {
             if (response.Success) {
                 window.location.reload();

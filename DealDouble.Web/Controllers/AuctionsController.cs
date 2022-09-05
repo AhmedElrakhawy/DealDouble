@@ -13,6 +13,8 @@ namespace DealDouble.Web.Controllers
     {
         categoriesService AuctionsService = new categoriesService();
         CategoriesService categoriesService = new CategoriesService();
+        SharedService SharedService = new SharedService();
+
         public ActionResult Index(int? CategoryID , string SearchTerm,int? PageNum)
         {
             var Model = new AuctionsListViewModel();
@@ -118,9 +120,11 @@ namespace DealDouble.Web.Controllers
         public ActionResult Details(int ID)
         {
             var Model = new DetailsViewModel();
+            Model.EntityID = (int)EntityEnums.Auction;
             Model.PageTitle = "Auction Details";
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);
+            Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
             Model.BidAmount = Model.auction.ActualAmount + Model.auction.Bids.Sum(x => x.BidAmount);
             var LatestBidder = Model.auction.Bids.OrderByDescending(x => x.TimesTamp).FirstOrDefault();
             Model.LastBidder = LatestBidder != null ? LatestBidder.User : null;

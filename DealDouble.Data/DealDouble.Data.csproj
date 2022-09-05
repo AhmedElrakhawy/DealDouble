@@ -98,6 +98,10 @@
     <Compile Include="Migrations\202209040519311_ChangingBidAmountDatatype.Designer.cs">
       <DependentUpon>202209040519311_ChangingBidAmountDatatype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209041855552_CommentTable.cs" />
+    <Compile Include="Migrations\202209041855552_CommentTable.Designer.cs">
+      <DependentUpon>202209041855552_CommentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209040519311_ChangingBidAmountDatatype.resx">
       <DependentUpon>202209040519311_ChangingBidAmountDatatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209041855552_CommentTable.resx">
+      <DependentUpon>202209041855552_CommentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
