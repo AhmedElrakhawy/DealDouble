@@ -44,6 +44,7 @@ namespace DealDouble.Web.Controllers
                 comment.Text = Model.Text;
                 comment.EntityID = Model.EntityID;
                 comment.RecordID = Model.RecordID;
+                comment.Rating = Model.Rating;
                 comment.PostedOn = DateTime.Now;
                 comment.UserID = User.Identity.GetUserId();
 

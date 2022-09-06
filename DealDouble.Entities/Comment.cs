@@ -9,6 +9,7 @@ namespace DealDouble.Entities
     public class Comment : BaseEntity
     {
         public string Text { get; set; }
+        public int Rating { get; set; }
         public string UserID { get; set; }
         public DateTime PostedOn { get; set; }
         public int EntityID { get; set; }

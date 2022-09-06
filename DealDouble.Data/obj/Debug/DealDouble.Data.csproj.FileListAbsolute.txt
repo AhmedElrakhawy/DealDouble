@@ -35,3 +35,4 @@ D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrati
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingBidsReferanceToAuctionsTable.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.ChangingBidAmountDatatype.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.CommentTable.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingRatingcolumnTOCommentTable.resources
