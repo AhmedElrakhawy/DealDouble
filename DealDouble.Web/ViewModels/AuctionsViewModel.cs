@@ -29,6 +29,7 @@ namespace DealDouble.Web.ViewModels
         public DealDoubleUser LastBidder { get; set; }
         public List<Comment> Comments { get; set; }
         public int EntityID { get;  set; }
+        public bool IsAuthenticated { get; internal set; }
     }
     public class CreateAuctionViewModel
     {

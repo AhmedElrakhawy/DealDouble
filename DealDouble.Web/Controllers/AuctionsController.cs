@@ -1,6 +1,7 @@
 ﻿using DealDouble.Entities;
 using DealDouble.Services;
 using DealDouble.Web.ViewModels;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -125,6 +126,7 @@ namespace DealDouble.Web.Controllers
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);
             Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
+            Model.IsAuthenticated = User.Identity.IsAuthenticated;
             Model.BidAmount = Model.auction.ActualAmount + Model.auction.Bids.Sum(x => x.BidAmount);
             var LatestBidder = Model.auction.Bids.OrderByDescending(x => x.TimesTamp).FirstOrDefault();
             Model.LastBidder = LatestBidder != null ? LatestBidder.User : null;

@@ -13,6 +13,7 @@ namespace DealDouble.Data
     {
         public DealDoubleDBContext() : base("name=DealDoubleConnectionString")
         {
+            Database.SetInitializer<DealDoubleDBContext>(new DealDoubleInitializer());
         }
         public DbSet<Auction> Auctions { get; set; }
         public DbSet<Picture> Pictures { get; set; }

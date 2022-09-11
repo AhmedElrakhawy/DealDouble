@@ -14,7 +14,7 @@ namespace DealDouble.Web.Controllers
         BidsService Service = new BidsService();
 
         [HttpPost]
-        public JsonResult Bid(int ID)
+        public JsonResult Bid(int ID , int BidAmount)
         {
             var Result = new JsonResult();
             Result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
@@ -23,7 +23,7 @@ namespace DealDouble.Web.Controllers
                 var bid = new Bid();
                 bid.AuctionID = ID;
                 bid.UserID = User.Identity.GetUserId();
-                bid.BidAmount = 100;
+                bid.BidAmount = BidAmount;
                 bid.TimesTamp = DateTime.Now;
                 var BidResult = Service.AddiBid(bid);
                 if (BidResult)

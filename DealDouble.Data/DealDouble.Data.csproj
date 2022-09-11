@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DealDoubleDBContext.cs" />
+    <Compile Include="DealDoubleInitializer.cs" />
     <Compile Include="Migrations\202207270455421_AddingAuctionTable.cs" />
     <Compile Include="Migrations\202207270455421_AddingAuctionTable.Designer.cs">
       <DependentUpon>202207270455421_AddingAuctionTable.cs</DependentUpon>
