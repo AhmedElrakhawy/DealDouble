@@ -30,6 +30,7 @@ namespace DealDouble.Web.ViewModels
         public List<Comment> Comments { get; set; }
         public int EntityID { get;  set; }
         public bool IsAuthenticated { get; internal set; }
+        public Double AvgRating { get; set; }
     }
     public class CreateAuctionViewModel
     {

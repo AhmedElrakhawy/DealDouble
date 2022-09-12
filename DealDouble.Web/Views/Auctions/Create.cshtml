@@ -46,46 +46,35 @@
             <label for="StartingTime">
                 StartingTime
             </label>
-            <input class="form-control" name="StartingTime" id="StartingTime" />
+            <input class="form-control" id="datepicker1" name="StartingTime" />
         </div>
-        @*<div class="row">
-            <div class='col-sm-6'>
-                <div class="form-group">
-                    <label for="StartingTime">
-                        StartingTime
-                    </label>
-                    <div class='input-group date' id="StartingTime">
-                        <input type='text' class="form-control" name="StartingTime" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-            </div>*@
-            <div class="form-group">
-                <label for="EndingTime">
-                    EndingTime
-                </label>
-                <input class="form-control" name="EndingTime" />
-            </div>
-            <div class="form-group">
-                <label for="AuctionPictures">
-                    AuctionPictures
-                </label>
-                <input id="auctionPicture" type="file" multiple class="form-control" name="AuctionPictures" />
-                <div id="PicturesArea" class="mt-2"></div>
-                <input type="hidden" name="AuctionPictures" id="PictureIDs" />
-            </div>
-            <div class="form-group bg-danger" style="display:none" id="ErorrForm"></div>
+        <div class="form-group">
+            <label for="EndingTime">
+                EndingTime
+            </label>
+            <input class="form-control" id="datepicker2" name="EndingTime" />
         </div>
+        <div class="form-group">
+            <label for="AuctionPictures">
+                AuctionPictures
+            </label>
+            <input id="auctionPicture" type="file" multiple class="form-control" name="AuctionPictures" />
+            <div id="PicturesArea" class="mt-2"></div>
+            <input type="hidden" name="AuctionPictures" id="PictureIDs" />
+        </div>
+        <div class="form-group bg-danger" style="display:none" id="ErorrForm"></div>
+    </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-success" id="saveBtn">Create</button>
         </div>
 </form>
 <script>
-    $(function () {
-        $('input[name="StartingTime"]').daterangepicker();
+    $('#datepicker1').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+    $('#datepicker2').datepicker({
+        uiLibrary: 'bootstrap4'
     });
     $("#CreateData").validate({
         rules: {
@@ -112,6 +101,7 @@
         }
     });
     $("#saveBtn").click(function () {
+        debugger;
         if ($("#CreateData").valid()) {
         var DataIDs = [];
         $("#PicturesArea .image").each(function () {

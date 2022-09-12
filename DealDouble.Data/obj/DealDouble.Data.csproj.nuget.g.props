@@ -17,5 +17,6 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\SOFT\.nuget\packages\entityframework\6.2.0</PkgEntityFramework>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\SOFT\.nuget\packages\jquery\1.9.1</PkgjQuery>
   </PropertyGroup>
 </Project>

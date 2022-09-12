@@ -125,7 +125,11 @@ namespace DealDouble.Web.Controllers
             Model.PageTitle = "Auction Details";
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);
-            Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
+            if (SharedService.GetComments(Model.EntityID, Model.auction.ID) != null)
+            {
+                Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
+                Model.AvgRating = SharedService.GetComments(Model.EntityID, Model.auction.ID).Average(x => x.Rating);
+            }
             Model.IsAuthenticated = User.Identity.IsAuthenticated;
             Model.BidAmount = Model.auction.ActualAmount + Model.auction.Bids.Sum(x => x.BidAmount);
             var LatestBidder = Model.auction.Bids.OrderByDescending(x => x.TimesTamp).FirstOrDefault();

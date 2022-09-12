@@ -47,14 +47,13 @@
             <label for="StartingTime">
                 StartingTime
             </label>
-            <input class="form-control" name="StartingTime" value="@Model.StartingTime" />
+            <input class="form-control" id="datepicker1" name="StartingTime" value="@Model.StartingTime" />
         </div>
-
         <div class="form-group">
             <label for="EndingTime">
                 EndingTime
             </label>
-            <input class="form-control" name="EndingTime" value="@Model.EndingTime" />
+            <input class="form-control" id="datepicker2" name="EndingTime" value="@Model.EndingTime"/>
         </div>
         <div class="form-group">
             <label for="AuctionPictures">
@@ -67,7 +66,7 @@
                     foreach (var Picture in Model.AuctionPicturesList)
                     {
                         <input type="hidden" class="Imageurl" value="@Picture.Picture.URL" />
-                        <img class="image img-thumbnail" src="/Content/Images/@Picture.Picture.URL" style="width:200px;height:200px;"/>
+                        <img class="image img-thumbnail" src="/Content/Images/@Picture.Picture.URL" style="width:200px;height:200px;" />
                     }
                 }
             </div>
@@ -83,6 +82,12 @@
 
 
 <script>
+    $('#datepicker1').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+    $('#datepicker2').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
     RemoveImagesOnClick();
     $("#saveBtn").click(function () {
         debugger;

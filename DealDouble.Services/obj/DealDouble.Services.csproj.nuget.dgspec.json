@@ -42,6 +42,10 @@
       "frameworks": {
         "net452": {
           "dependencies": {
+            "Bootstrap.v3.Datetimepicker": {
+              "target": "Package",
+              "version": "[4.17.49, )"
+            },
             "EntityFramework": {
               "target": "Package",
               "version": "[6.2.0, )"

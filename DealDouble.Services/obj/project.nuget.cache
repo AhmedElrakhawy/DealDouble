@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "2F2YoNldyXtUOxJm28HTYq8/A9p2sHf6RdqQLhVdD/XQ6673piO9FsCv0DK7QEE9ZrwlHy7uzYvBwa+NPtl1qQ==",
+  "dgSpecHash": "s23WVX9T+p3wmzXexxmWAAEQEQ2BU5ESm26AUw8wBWfgvk51IJ/PseHq1lQilDwl5e9YRqyvWrMTpP8/zxHMng==",
   "success": true,
   "projectFilePath": "D:\\My work\\Projects\\DealDouble\\DealDouble.Services\\DealDouble.Services.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\SOFT\\.nuget\\packages\\bootstrap.less\\3.4.1\\bootstrap.less.3.4.1.nupkg.sha512",
+    "C:\\Users\\SOFT\\.nuget\\packages\\bootstrap.v3.datetimepicker\\4.17.49\\bootstrap.v3.datetimepicker.4.17.49.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
+    "C:\\Users\\SOFT\\.nuget\\packages\\jquery\\1.9.1\\jquery.1.9.1.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.2\\microsoft.aspnet.identity.core.2.2.2.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.aspnet.identity.entityframework\\2.2.2\\microsoft.aspnet.identity.entityframework.2.2.2.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.aspnet.identity.owin\\2.2.2\\microsoft.aspnet.identity.owin.2.2.2.nupkg.sha512",
@@ -12,6 +15,7 @@
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.owin.security\\3.0.1\\microsoft.owin.security.3.0.1.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.owin.security.cookies\\3.0.1\\microsoft.owin.security.cookies.3.0.1.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\microsoft.owin.security.oauth\\3.0.1\\microsoft.owin.security.oauth.3.0.1.nupkg.sha512",
+    "C:\\Users\\SOFT\\.nuget\\packages\\moment.js\\2.9.0\\moment.js.2.9.0.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
     "C:\\Users\\SOFT\\.nuget\\packages\\owin\\1.0.0\\owin.1.0.0.nupkg.sha512"
   ],
