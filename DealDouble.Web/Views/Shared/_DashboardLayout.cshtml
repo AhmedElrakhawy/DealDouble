@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard Template</title>
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <link href="/Content/css/dashboard.css" rel="stylesheet" />
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+</head>
+<body>
+    @*<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="@Url.Action("Index","Home")"><i class="bi bi-grid-1x2"></i> Deal<b>Double</b></a>
+            <input class="form-control form-control-dark w-100 bg-dark" disabled type="text" value="Hi @User.Identity.Name">
+            <ul class="navbar-nav px-3">
+                <li class="nav-item">
+                    <a class="nav-link" id="LogOffBtn" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="bar-chart-2"></span>
+                                    <i class="bi bi-house-door"></i> Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="@Url.Action("Index","Dashboard")">
+                                    <span data-feather="home"></span>
+                                    <i class="bi bi-box"></i> Dashboard <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index","Categories")">
+                                    <span data-feather="file"></span>
+                                    <i class="bi bi-columns-gap"></i> Categories
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index","Auctions")">
+                                    <span data-feather="shopping-cart"></span>
+                                    <i class="bi bi-diagram-3"></i> Auctions
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Bid","Bids")">
+                                    <span data-feather="users"></span>
+                                    <i class="bi bi-wallet2"></i> Bids
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Users Menu</span>
+                            <a class="d-flex align-items-center text-muted" href="#">
+                                <span data-feather="plus-circle"></span>
+                            </a>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Users","Dashboard")">
+                                    <span data-feather="file-text"></span>
+                                    <i class="bi bi-people"></i> Users
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Roles","Dashboard")">
+                                    <span data-feather="file-text"></span>
+                                    <i class="bi bi-bezier"></i> Roles
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Roles","Dashboard")">
+                                    <span data-feather="file-text"></span>
+                                    <i class="bi bi-blockquote-left"></i> Comments
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+
+                <main role="main" class="mt-4 ml-sm-auto col-lg-10 px-4">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>*@
+
+        <div class="d-flex" id="wrapper">
+            <div class="border-right bg-light" id="sidebar-wrapper">
+                <div class="sidebar-heading bold">
+                    <i class="mr-1 fas fa-check-double"></i> Deal<b>Double</b>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Index","Home")">
+                        <i class="mr-1 fas fa-home"></i> Home
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Index","Dashboard")">
+                        <i class="fas fa-user-shield"></i> Dashboard
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Index","Categories")">
+                        <i class="mr-1 fas fa-sitemap"></i> Categories
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Index","Auctions")">
+                        <i class="mr-1 fab fa-shirtsinbulk"></i> Auctions
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Bid","Bids")">
+                        <i class="mr-1 fas fa-business-time"></i> Bids
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Users","Dashboard")">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Roles","Dashboard")">
+                        <i class="bi bi-bezier"></i> Roles
+                    </a>
+                    <a class="list-group-item list-group-item-action" href="@Url.Action("Comments","Dashboard")">
+                        <i class="bi bi-blockquote-left"></i> Comments
+                    </a>
+                </div>
+            </div>
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item active"><a class="nav-link" id="LogOffBtn" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+
+    <script src="~/Content/vendor/jquery/scripts.js"></script>
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <form id="LogoffForm" method="post" action="@Url.Action("LogOff","Account")">
+        @Html.AntiForgeryToken()
+    </form>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/vendor/jquery/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
+<script>
+    $("#LogOffBtn").click(function () {
+        $("#LogoffForm").submit();
+    });
+</script>

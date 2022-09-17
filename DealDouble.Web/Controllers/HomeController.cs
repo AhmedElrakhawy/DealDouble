@@ -10,15 +10,32 @@ namespace DealDouble.Web.Controllers
 {
     public class HomeController : Controller
     {
-        categoriesService auctionsService = new categoriesService();
-        public ActionResult Index()
+        AuctionsService auctionsService = new AuctionsService();
+        CategoriesService categoriesService = new CategoriesService(); 
+        public ActionResult Index(int? CategoryID , string SearchTerm, int? PageNum)
         {
             var Model = new AuctionsViewModel();
+            Model.AllAuctions = auctionsService.GetAllAuctions();
             Model.PageTitle = "Home Page";
-            Model.PageDescription = "Home Page";
-            Model.AllAuctions = auctionsService.GetAllAuctionsWithPictures();
-            Model.promotedAuctions = auctionsService.GetpromotedAuctions();
+            Model.PageDescription = "Home Page Description";
+            Model.Categories = categoriesService.GetAllCategories();
+            Model.CategoryID = Model.CategoryID;
+            Model.SearchTerm = SearchTerm;
             return View(Model);
+        }
+        public ActionResult ListingAuctions(int? CategoryID, string SearchTerm , int? PageNum)
+        {
+            var PageSize = 10;
+            var Model = new AuctionsViewModel();
+            Model.PageTitle = "Home Page";
+            Model.PageDescription = "Home Page Description";
+            Model.AllAuctions = auctionsService.SearchAuctions(CategoryID, SearchTerm, PageNum, PageSize);
+            Model.Categories = categoriesService.GetAllCategories();
+            Model.CategoryID = Model.CategoryID;
+            Model.SearchTerm = SearchTerm;
+            var AuctionCount = auctionsService.GetAuctionsCount(SearchTerm, CategoryID);
+            Model.Pager = new Pager(AuctionCount, PageNum, PageSize);
+            return PartialView(Model);
         }
 
         public ActionResult About()

@@ -10,8 +10,10 @@ namespace DealDouble.Web.ViewModels
     public class AuctionsViewModel : PageViewModel
     {
         public List<Auction> AllAuctions { get; set; }
-        public List<Auction> promotedAuctions { get; set; }
-
+        public List<Category> Categories { get; set; }
+        public int? CategoryID { get; set; }
+        public Pager Pager { get; set; }
+        public string SearchTerm { get;  set; }
     }
     public class AuctionsListViewModel : PageViewModel
     {

@@ -10,6 +10,9 @@ namespace DealDouble.Entities
 {
     public class DealDoubleUser : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName { get; set; }
         public int Age { get; set; }
         public int Mobile { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(Microsoft.AspNet.Identity.UserManager<DealDoubleUser> manager)

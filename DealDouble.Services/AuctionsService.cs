@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DealDouble.Services
 {
-    public class categoriesService
+    public class AuctionsService
     {
         public List<Auction> GetAllAuctionsWithCategories()
         {
@@ -26,6 +26,7 @@ namespace DealDouble.Services
                     .Include(x => x.AuctionPictures.Select(P => P.Picture)).ToList();
             }
         }
+
         public List<Auction> GetAllAuctions()
         {
             using (var Context = new DealDoubleDBContext())
@@ -99,7 +100,7 @@ namespace DealDouble.Services
                 PageNumber = PageNumber ?? 1;
                 int SkipCount = (PageNumber.Value - 1) * PageSize;
 
-                return Auctions.OrderBy(x => x.Title).Skip(SkipCount).Take(PageSize).ToList();
+                return Auctions.OrderBy(x => x.Title).Skip(SkipCount).Take(PageSize).Include(x => x.AuctionPictures.Select(P => P.Picture)).ToList();
             }
         }
         public void DeleteAuction(Auction auction)

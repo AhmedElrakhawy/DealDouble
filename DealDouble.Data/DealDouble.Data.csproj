@@ -107,6 +107,10 @@
     <Compile Include="Migrations\202209052320318_AddingRatingcolumnTOCommentTable.Designer.cs">
       <DependentUpon>202209052320318_AddingRatingcolumnTOCommentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209170140235_AddingSomeProbeetiesToUsers.cs" />
+    <Compile Include="Migrations\202209170140235_AddingSomeProbeetiesToUsers.Designer.cs">
+      <DependentUpon>202209170140235_AddingSomeProbeetiesToUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209052320318_AddingRatingcolumnTOCommentTable.resx">
       <DependentUpon>202209052320318_AddingRatingcolumnTOCommentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209170140235_AddingSomeProbeetiesToUsers.resx">
+      <DependentUpon>202209170140235_AddingSomeProbeetiesToUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

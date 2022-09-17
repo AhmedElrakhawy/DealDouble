@@ -12,7 +12,7 @@ namespace DealDouble.Web.Controllers
 {
     public class AuctionsController : Controller
     {
-        categoriesService AuctionsService = new categoriesService();
+        AuctionsService AuctionsService = new AuctionsService();
         CategoriesService categoriesService = new CategoriesService();
         SharedService SharedService = new SharedService();
 
@@ -125,7 +125,7 @@ namespace DealDouble.Web.Controllers
             Model.PageTitle = "Auction Details";
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);
-            if (SharedService.GetComments(Model.EntityID, Model.auction.ID) != null)
+            if (SharedService.GetComments(Model.EntityID, Model.auction.ID) != null && SharedService.GetComments(Model.EntityID, Model.auction.ID).Count() > 0)
             {
                 Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
                 Model.AvgRating = SharedService.GetComments(Model.EntityID, Model.auction.ID).Average(x => x.Rating);

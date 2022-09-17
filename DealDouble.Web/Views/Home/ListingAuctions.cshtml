@@ -1,0 +1,64 @@
+﻿@model DealDouble.Web.ViewModels.AuctionsViewModel
+
+@if (Model.AllAuctions != null && Model.AllAuctions.Count > 0)
+{
+    <div class="card-group">
+        @foreach (var Auction in Model.AllAuctions)
+        {
+            var PictureURL = Auction.AuctionPictures != null && Auction.AuctionPictures.Count > 0 ?
+               "/Content/Images/" + Auction.AuctionPictures.First().Picture.URL : "/Content/Images/default.jpg";
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="@PictureURL" class="card-img-top"
+                         alt="@Auction.Title" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="@Url.Action("Details","Auctions",new { ID = Auction.ID })">@Auction.Title</a>
+                        </h5>
+                        <p class="card-text">
+                            @Auction.Description
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">$@Auction.ActualAmount</small>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    if (Model.Pager != null & Model.Pager.TotalPages > 0)
+    {
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.Pager.CurrentPage == Model.Pager.StartPage)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" data-ID="#">Previous</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index","Home" ,new { PageNum = Model.Pager.CurrentPage -1 , CategoryID = Model.CategoryID,SearchTerm = Model.SearchTerm })">Previous</a>
+                    </li>
+                }
+                @for (int Page = Model.Pager.StartPage; Page < Model.Pager.EndPage + 1; Page++)
+                {
+                    var active = Page == Model.Pager.CurrentPage ? "active" : string.Empty;
+                    <li class="page-item @active"><a class="page-link" href="@Url.Action("Index","Home" ,new { PageNum = Page , CategoryID = Model.CategoryID,SearchTerm = Model.SearchTerm})">@Page</a></li>
+                }
+                @if (Model.Pager.CurrentPage == Model.Pager.EndPage)
+                {
+                    <li class="page-item disabled"><a class="page-link">Next</a></li>
+
+                }
+                else
+                {
+                    <li class="page-item"><a href="@Url.Action("Index","Home" ,new { PageNum = Model.Pager.CurrentPage +1 , CategoryID = Model.CategoryID,SearchTerm = Model.SearchTerm})" class="page-link">Next</a></li>
+                }
+            </ul>
+        </nav>
+    }
+
+}
