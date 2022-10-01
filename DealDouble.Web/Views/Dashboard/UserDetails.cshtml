@@ -1,0 +1,170 @@
+﻿@model DealDouble.Web.ViewModels.UserDetailsViewModel
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var ImgUrl = string.IsNullOrEmpty(Model.User.ImageUrl) ? "/Content/Images/default.jpg" : Model.User.ImageUrl;
+}
+
+
+@if (Model != null && Model.User != null)
+{
+    <div class="row mt-2">
+        <div class="col-lg-12 col-md-12">
+            <h2>User Details</h2>
+            <hr />
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-3">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img id="ImgUpload" class="rounded-circle img-fluid" name="ImageUrl" style="width: 150px;" src="@ImgUrl">
+                    <input id="Imginput" type="file" style="display:none" />
+                </div>
+                <div class="card-footer">
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><a href="#!"><i class="far fa-envelope display-25 me-3 text-secondary"></i>@Model.User.Email</a></li>
+                        <li class="mb-3"><a href="#!"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>@Model.User.PhoneNumber</a></li>
+                        <li><a href="#!"><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>@Model.User.Address</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Account page navigation-->
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="userlink nav-link active" href="#" data-href="@Url.Action("UserDetails","Dashboard",new { UserID = Model.User.Id })">Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="userlink nav-link" href="#" data-href="@Url.Action("UserRoles","Dashboard",new { UserID = Model.User.Id })">Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="userlink nav-link" href="#" data-href="@Url.Action("UserBids","Dashboard",new { UserID = Model.User.Id })">Bids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="userlink nav-link" href="#" data-href="@Url.Action("UserComments","Dashboard",new { UserID = Model.User.Id })">Comments</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div id="DivContainer">
+                         @{ Html.RenderPartial("_UserDetails", Model);}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        User Not Found.
+    </div>
+}
+<script>
+
+    $(".userlink").click(function () {
+        var linkurl = $(this).attr("data-href");
+
+        if (linkurl != undefined || linkurl != "") {
+            $(".userlink").removeClass("active");
+            $(this).addClass("active");
+
+            $.ajax({
+                url: linkurl
+            }).done(function (response) {
+                $("#DivContainer").html(response);
+            });
+        }
+    });
+
+    $("#ImgUpload").click(function () {
+        $("#Imginput").click();
+    });
+    $("#UpdateBtn").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("UserUpdate", "Dashboard")",
+            type: "POST",
+            data: $("#UserForm").serialize()
+        }).done(function (response) {
+            window.location.href = "@Url.Action("Users","Dashboard")"
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            swal({
+                text: "Failed To Update",
+                icon: "warning"
+            });
+        });
+    });
+    $("#Deletebtn").click(function () {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this User!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "@Url.Action("UserDelete", "Dashboard")",
+                        type: "POST",
+                        data:{
+                           ID : $("#UserId").val()
+                        }
+                    }).done(function (response) {
+                        if (response.Success) {
+                            swal
+                             (
+                             "User has been deleted!",
+                             {
+                             icon: "success",
+                             });
+                         window.location.href = "@Url.Action("Users","Dashboard")";
+                        }
+                        else {
+                            swal("Failed to Delete this User!");
+                        }
+                     }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+                         swal("Failed to Delete this User!");
+                     });
+                }
+            });
+    });
+    $("#Imginput").change(function () {
+        debugger;
+        var Pictures = this;
+        var PicData = new FormData();
+        PicData.append("Picture", this)
+        var totalfile = Pictures.files.length;
+        for (var i = 0; i < totalfile; i++) {
+            PicData.append("Picture", Pictures.files[i]);
+        }
+        $.ajax({
+            type: "Post",
+            url: "@Url.Action("UploadPictures","Shared")",
+            data: PicData,
+            dataType:"json",
+            contentType: false,
+            processData: false
+        }).done(function (responses) {
+            var Total = responses.length;
+            for (var i = 0; i < Total; i++) {
+                var picResponse = responses[i];
+                $("#ImgUpload").attr('src', '/Content/Images/' + picResponse.URL);
+                $("#FormInputImg").attr('value', '/Content/Images/' + picResponse.URL);
+            }
+        }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Fail");
+        });
+    });
+</script>

@@ -1,0 +1,133 @@
+﻿@model DealDouble.Web.ViewModels.UserRolesViewModel
+
+<h5>User Roles</h5>
+
+@if (Model != null)
+{
+    if (Model.UserRoles != null && Model.UserRoles.Count > 0)
+    {
+        var i = 1;
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Role in Model.UserRoles)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@Role.Name</td>
+                        <td>
+                            <button value="@Role.Id" type="button" class="btn btn-danger DeleteBtn">Delete</button>
+                        </td>
+                    </tr>
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            No Roles For This User..
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        No Roles For This User..
+    </div>
+}
+@{
+    var AvailableCurrentRoles = Model.AvailableRoles.Where(x => Model.UserRoles.Find(r => r.Id == x.Id) == null).ToList();
+}
+@if (AvailableCurrentRoles != null && AvailableCurrentRoles.Count > 0)
+{
+    <h5>
+        Assign a New Role
+    </h5>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <select class="form-control" id="RoleselectId">
+                        <option>Please select a new Role</option>
+                        @foreach (var Role in AvailableCurrentRoles)
+                        {
+
+                            <option value="@Role.Id">
+                                @Role.Name
+                            </option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    <button id="BtnAssignrole" type="button" class="btn btn-success">Assign</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+<script>
+    $("#BtnAssignrole").click(function () {
+        debugger;
+        var RoleId = $("#RoleselectId").val();
+        if (RoleId != "" && RoleId != undefined) {
+            $.ajax({
+                url: "@Url.Action("AssignUserRoles", "Dashboard", new {UserID = Model.User.Id})",
+                data: {
+                    roleId : RoleId
+                }
+            }).done(function (response) {
+                $("#DivContainer").html(response);
+            }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+                swal("Failed to Assign a new Role For this User!");
+            });
+        }
+        else {
+            swal("Failed to Assign a new Role For this User!", {
+                icon: "warning",
+            });
+        }
+    });
+
+    $(".DeleteBtn").click(function () {
+        debugger;
+        var RoleId = $(this).val();
+        swal({
+            title: "Are you sure?",
+            text: "tou want to delete this Role ?!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    if (RoleId != "" && RoleId != undefined) {
+                        $.ajax({
+                            url: "@Url.Action("DeleteUserRole", "Dashboard", new {UserID = Model.User.Id})",
+                            data: {
+                                roleId: RoleId
+                            }
+                        }).done(function (response) {
+                            $("#DivContainer").html(response);
+                        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+                            swal("Failed to Assign a new Role For this User!");
+                        });
+                    }
+                    else {
+                        swal("Failed to Assign a new Role For this User!", {
+                            icon: "warning",
+                        });
+                    }
+                }
+            });
+    });
+</script>
+

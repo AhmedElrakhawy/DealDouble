@@ -44,7 +44,7 @@
                         @User.Roles.Count
                     </td>
                     <td>
-                        <button type="button" class="detailsbtn btn btn-primary" data-ID="@User.Id" data-toggle="modal" data-target="#FormModal">More Details</button>
+                        <a href="@Url.Action("UserDetails","Dashboard", new { UserID = User.Id })" class="btn btn-primary">More Details</a>
                     </td>
                 </tr>
                     }
@@ -110,20 +110,6 @@
             alert("FAIL");
         });
     });
-    @*$(".detailsbtn").click(function () {
-        $.ajax({
-            type: "Get",
-            url: "@Url.Action("Edit","Auctions")",
-            data: {
-                ID: $(this).attr('data-ID')
-            }
-        }).done(function (response) {
-            $("#actionContainer").html(response);
-            $("#FormModal").modal('toggle');
-        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
-            alert("FAIL");
-        })
-    });*@
 </script>
 
 

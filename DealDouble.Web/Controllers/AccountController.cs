@@ -59,6 +59,7 @@ namespace DealDouble.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            var model = new LoginViewModel();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -139,9 +140,13 @@ namespace DealDouble.Web.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Register()
         {
-            return View();
+            var model = new RegisterViewModel();
+            model.PageTitle = "Register Page";
+            model.PageDescription = "User Registeration Page";
+            return View(model);
         }
 
         //
@@ -153,18 +158,20 @@ namespace DealDouble.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new DealDoubleUser { UserName = model.UserName, Email = model.Email , FirstName = model.FirstName , LastName = model.LastName , FullName = model.FirstName + " " + model.LastName};
+                var user = new DealDoubleUser { UserName = model.UserName, Email = model.Email , Address = model.Address, PhoneNumber = model.PhoneNumber,Country = model.Country,
+                   Age = model.Age, FirstName = model.FirstName , LastName = model.LastName , FullName = model.FirstName + " " + model.LastName , ImageUrl = model.ImageUrl};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await UserManager.AddToRoleAsync(user.Id, "User");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

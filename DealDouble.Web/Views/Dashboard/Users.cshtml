@@ -18,6 +18,7 @@
         <form method="post">
             <div class="input-group">
                 <hr />
+                <input id="SearchBox" placeholder="Search By UserName Or Email" type="search" name="SearchTerm" value="@Model.SearchTerm" class="form-control" />
                 <select class="custom-select mr-sm-2" id="RolesSearch" name="RoleID">
                     <option>Select Role...</option>
                     @foreach (var Role in Model.Roles)
@@ -26,15 +27,16 @@
                         <option @selected value="@Model.RoleID" data-ID="@Role.Id">@Role.Name</option>
                     }
                 </select>
-                <input id="SearchBox" type="search" name="SearchTerm" value="@Model.SearchTerm" class="form-control" />
                 <button type="button" class="SearchUser btn btn-primary">
                     <i class="fas fa-search"></i> Search
                 </button>
-                <a href="@Url.Action("Users","Dashboard")" role="button" class="form-control btn btn-primary"> <i class="fas fa-redo-alt"></i>  Reset</a>
+                <a href="@Url.Action("Users","Dashboard")" role="button" class="form-control btn btn-primary">
+                    <i class="fas fa-redo-alt"></i>  Reset
+                </a>
             </div>
         </form>
         <div id="tableContainer">
-            @{Html.RenderAction("UsersTable",new {RoleID = Model.RoleID , PageNum = Model , SearchTerm = Model.SearchTerm }); }
+            @{Html.RenderAction("UsersTable",new {RoleID = Model.RoleID , PageNum = Model.PageNum , SearchTerm = Model.SearchTerm }); }
         </div>
         <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">

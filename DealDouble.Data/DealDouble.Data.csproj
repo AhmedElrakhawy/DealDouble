@@ -111,6 +111,26 @@
     <Compile Include="Migrations\202209170140235_AddingSomeProbeetiesToUsers.Designer.cs">
       <DependentUpon>202209170140235_AddingSomeProbeetiesToUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209210407208_AddingMoreUserFeature.cs" />
+    <Compile Include="Migrations\202209210407208_AddingMoreUserFeature.Designer.cs">
+      <DependentUpon>202209210407208_AddingMoreUserFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209220027361_AddingBirthdayFeatureToUser.cs" />
+    <Compile Include="Migrations\202209220027361_AddingBirthdayFeatureToUser.Designer.cs">
+      <DependentUpon>202209220027361_AddingBirthdayFeatureToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209220043083_UndoBirthdayFeatureToUser.cs" />
+    <Compile Include="Migrations\202209220043083_UndoBirthdayFeatureToUser.Designer.cs">
+      <DependentUpon>202209220043083_UndoBirthdayFeatureToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209220056317_AddImageUrlFeatureToUser.cs" />
+    <Compile Include="Migrations\202209220056317_AddImageUrlFeatureToUser.Designer.cs">
+      <DependentUpon>202209220056317_AddImageUrlFeatureToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.cs" />
+    <Compile Include="Migrations\202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.Designer.cs">
+      <DependentUpon>202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -185,6 +205,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209170140235_AddingSomeProbeetiesToUsers.resx">
       <DependentUpon>202209170140235_AddingSomeProbeetiesToUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209210407208_AddingMoreUserFeature.resx">
+      <DependentUpon>202209210407208_AddingMoreUserFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209220027361_AddingBirthdayFeatureToUser.resx">
+      <DependentUpon>202209220027361_AddingBirthdayFeatureToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209220043083_UndoBirthdayFeatureToUser.resx">
+      <DependentUpon>202209220043083_UndoBirthdayFeatureToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209220056317_AddImageUrlFeatureToUser.resx">
+      <DependentUpon>202209220056317_AddImageUrlFeatureToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.resx">
+      <DependentUpon>202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

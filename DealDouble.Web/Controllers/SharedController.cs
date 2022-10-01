@@ -2,6 +2,7 @@
 using DealDouble.Services;
 using DealDouble.Web.ViewModels;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,30 @@ namespace DealDouble.Web.Controllers
 {
     public class SharedController : Controller
     {
+
+        private DealDoubleUserManager _userManager;
+
+        public SharedController()
+        {
+        }
+
+        public SharedController(DealDoubleUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+        public DealDoubleUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<DealDoubleUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+
         SharedService Service = new SharedService();
         [HttpPost]
         public JsonResult UploadPictures()
@@ -46,7 +71,9 @@ namespace DealDouble.Web.Controllers
                 comment.RecordID = Model.RecordID;
                 comment.Rating = Model.Rating;
                 comment.PostedOn = DateTime.Now;
-                comment.UserID = User.Identity.GetUserId();
+                comment.UserName = User.Identity.GetUserName();
+                var UserID = User.Identity.GetUserId();
+                comment.UserImageUrl = UserManager.Users.FirstOrDefault(x => x.Id == UserID).ImageUrl;
 
                 Result.Data = new { Success = Service.AddingComment(comment) };
             }

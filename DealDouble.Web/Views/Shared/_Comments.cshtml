@@ -18,12 +18,12 @@
                 var DefaultStars = 5 - Comment.Rating;
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                        <img src="@Comment.UserImageUrl" class="rounded-circle img-fluid" style="width: 120px;"/>
                     </div>
                     <div class="col-md-10">
                         <p>
                             <a class="float-left" href="#">
-                                <strong>@Comment.UserID</strong>
+                                <strong>@Comment.UserName</strong>
                             </a>
                             <span class="float-right mb-2">
                                 @Comment.PostedOn
@@ -52,6 +52,12 @@
                 </div>
                 <hr />
             }
+        </div>
+    }
+    else
+    {
+        <div class="card-footer">
+            <p>No Comments Submited Yet...</p>
         </div>
     }
     <div class="card-footer">

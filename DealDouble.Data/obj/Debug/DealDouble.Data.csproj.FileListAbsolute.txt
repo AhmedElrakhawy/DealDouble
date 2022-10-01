@@ -37,3 +37,8 @@ D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrati
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.CommentTable.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingRatingcolumnTOCommentTable.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingSomeProbeetiesToUsers.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingMoreUserFeature.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingBirthdayFeatureToUser.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.UndoBirthdayFeatureToUser.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddImageUrlFeatureToUser.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingSOmeUserFeaturesToCOmmentEntity.resources

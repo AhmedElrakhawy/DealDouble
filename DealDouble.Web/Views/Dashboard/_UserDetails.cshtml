@@ -1,0 +1,58 @@
+﻿@model DealDouble.Web.ViewModels.UserDetailsViewModel
+
+
+<form id="UserForm">
+    <!-- Form Group (username)-->
+    <div class="mb-3">
+        <input id="UserId" class="form-control" name="Id" type="hidden" value="@Model.User.Id">
+        <input id="FormInputImg" type="hidden" value="@Model.User.ImageUrl" name="ImageUrl" />
+    </div>
+    <div class="mb-3">
+        <label class="small mb-1">Username</label>
+        <input class="form-control" name="UserName" type="text" placeholder="Enter your username" value="@Model.User.UserName">
+    </div>
+    <!-- Form Row-->
+    <div class="row gx-3 mb-3">
+        <!-- Form Group (first name)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="FirstName">First Name</label>
+            <input class="form-control" name="FirstName" type="text" value="@Model.User.FirstName">
+        </div>
+        <!-- Form Group (last name)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="LastName">Last name</label>
+            <input class="form-control" name="LastName" type="text" value="@Model.User.LastName">
+        </div>
+    </div>
+    <!-- Form Row        -->
+    <div class="row gx-3 mb-3">
+        <!-- Form Group (organization name)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="Country">Country</label>
+            <input class="form-control" name="Country" type="text" value="@Model.User.Country">
+        </div>
+        <!-- Form Group (location)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="Age">Age</label>
+            <input class="form-control" name="Age" id="inputLocation" type="text" value="@Model.User.Age">
+        </div>
+    </div>
+    <!-- Form Row-->
+    <div class="row gx-3 mb-3">
+        <!-- Form Group (phone number)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="PhoneNumber">Phone number</label>
+            <input class="form-control" name="PhoneNumber" type="tel" value="@Model.User.PhoneNumber">
+        </div>
+        <!-- Form Group (birthday)-->
+        <div class="col-md-6">
+            <label class="small mb-1" for="Address">Address</label>
+            <input class="form-control" name="Address" value="@Model.User.Address">
+        </div>
+    </div>
+    <!-- Save changes button-->
+    <div class="btn-group float-right">
+        <button id="UpdateBtn" class="btn btn-success" type="button">Update</button>
+        <button id="Deletebtn" class="btn btn-danger" type="button">Delete</button>
+    </div>
+</form>

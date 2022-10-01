@@ -72,6 +72,17 @@ namespace DealDouble.Web.Models
         [Required]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+        [Required]
+        [Display(Name = "Country")]
+        public string Country { get; set; }
+        [Required]
+        [Display(Name = "Phone Number")]
+        [Phone]
+        public string PhoneNumber { get; set; }
+        public string ImageUrl { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -80,6 +91,9 @@ namespace DealDouble.Web.Models
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Required]
+        [Display(Name = "Age")]
+        public int Age { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

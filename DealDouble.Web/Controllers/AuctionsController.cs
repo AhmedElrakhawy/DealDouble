@@ -2,6 +2,7 @@
 using DealDouble.Services;
 using DealDouble.Web.ViewModels;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,12 @@ namespace DealDouble.Web.Controllers
 {
     public class AuctionsController : Controller
     {
+
         AuctionsService AuctionsService = new AuctionsService();
         CategoriesService categoriesService = new CategoriesService();
         SharedService SharedService = new SharedService();
 
-        public ActionResult Index(int? CategoryID , string SearchTerm,int? PageNum)
+        public ActionResult Index(int? CategoryID, string SearchTerm, int? PageNum)
         {
             var Model = new AuctionsListViewModel();
             Model.Auctions = AuctionsService.GetAllAuctions();
@@ -28,12 +30,12 @@ namespace DealDouble.Web.Controllers
             Model.PageNum = PageNum;
             return View(Model);
         }
-        public ActionResult AuctionsTable(string SearchTerm,int? CategoryID,int? PageNum)
+        public ActionResult AuctionsTable(string SearchTerm, int? CategoryID, int? PageNum)
         {
             var PageSize = 2;
             var Model = new AuctionsListViewModel();
             Model.Auctions = AuctionsService.SearchAuctions(CategoryID, SearchTerm, PageNum, PageSize);
-            var AuctionCount = AuctionsService.GetAuctionsCount(SearchTerm,CategoryID);
+            var AuctionCount = AuctionsService.GetAuctionsCount(SearchTerm, CategoryID);
             Model.Pager = new Pager(AuctionCount, PageNum, PageSize);
             Model.Categories = categoriesService.GetAllCategories();
             Model.CategoryID = CategoryID;
@@ -70,7 +72,7 @@ namespace DealDouble.Web.Controllers
             }
             else
             {
-                result.Data = new { Success = false , Error = "Unable to Save Auction please Enter a valid Fields" };
+                result.Data = new { Success = false, Error = "Unable to Save Auction please Enter a valid Fields" };
             }
             return result;
         }
@@ -125,6 +127,7 @@ namespace DealDouble.Web.Controllers
             Model.PageTitle = "Auction Details";
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);
+
             if (SharedService.GetComments(Model.EntityID, Model.auction.ID) != null && SharedService.GetComments(Model.EntityID, Model.auction.ID).Count() > 0)
             {
                 Model.Comments = SharedService.GetComments(Model.EntityID, Model.auction.ID);
@@ -134,6 +137,7 @@ namespace DealDouble.Web.Controllers
             Model.BidAmount = Model.auction.ActualAmount + Model.auction.Bids.Sum(x => x.BidAmount);
             var LatestBidder = Model.auction.Bids.OrderByDescending(x => x.TimesTamp).FirstOrDefault();
             Model.LastBidder = LatestBidder != null ? LatestBidder.User : null;
+
             return View(Model);
         }
     }

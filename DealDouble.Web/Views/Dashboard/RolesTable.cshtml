@@ -1,0 +1,122 @@
+﻿@model DealDouble.Web.ViewModels.RolesTableViewModel
+
+<div>
+
+    <br />
+    <div class="col-lg-12" id="tableContainer">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Role
+                    </th>
+                    <th>
+                        Users
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Roles != null && Model.Roles.Count > 0)
+                {
+                    foreach (var Role in Model.Roles)
+                    {
+                        <tr>
+                            <td>
+                                @Role.Id
+                            </td>
+                            <td>
+                                @Role.Name
+                            </td>
+                            <td>
+                                @Role.Users.Count
+                            </td>
+                            <td>
+                                <button type="button" class="detailsbtn btn btn-primary" data-ID="@Role.Id" data-toggle="modal" data-target="#FormModal">More Details</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td class="text-center" colspan="7">
+                            No Results Found..
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (Model.Pager != null & Model.Pager.TotalPages > 0)
+        {
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (Model.Pager.CurrentPage == Model.Pager.StartPage)
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" data-ID="#">Previous</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Roles","Dashboard" ,new { PageNum = Model.Pager.CurrentPage -1 ,SearchTerm = Model.SearchTerm })">Previous</a>
+                        </li>
+                    }
+                    @for (int Page = Model.Pager.StartPage; Page < Model.Pager.EndPage + 1; Page++)
+                    {
+                        var active = Page == Model.Pager.CurrentPage ? "active" : string.Empty;
+                        <li class="page-item @active"><a class="page-link" href="@Url.Action("Roles","Dashboard" ,new { PageNum = Page ,SearchTerm = Model.SearchTerm})">@Page</a></li>
+                    }
+                    @if (Model.Pager.CurrentPage == Model.Pager.EndPage)
+                    {
+                        <li class="page-item disabled"><a class="page-link">Next</a></li>
+
+                    }
+                    else
+                    {
+                        <li class="page-item"><a href="@Url.Action("Roles","Dashboard" ,new { PageNum = Model.Pager.CurrentPage +1 ,SearchTerm = Model.SearchTerm})" class="page-link">Next</a></li>
+                    }
+                </ul>
+            </nav>
+        }
+    </div>
+</div>
+<script>
+    $(".SearchRole").click(function () {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("RolesTable","Dashboard")",
+            data: {
+                SearchTerm: $("#SearchBox").val(),
+            }
+        }).done(function (response) {
+            $("#tableContainer").html(response);
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        });
+    });
+    @*$(".detailsbtn").click(function () {
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("Edit","Auctions")",
+            data: {
+                ID: $(this).attr('data-ID')
+            }
+        }).done(function (response) {
+            $("#actionContainer").html(response);
+            $("#FormModal").modal('toggle');
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        })
+    });*@
+</script>
+
+
+

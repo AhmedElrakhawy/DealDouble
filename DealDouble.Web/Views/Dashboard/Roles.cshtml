@@ -1,0 +1,41 @@
+﻿@model DealDouble.Web.ViewModels.RolesViewModel
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+}
+
+<div class="row container">
+
+    <div class="col-lg-12 m-2">
+        <div>
+            <div class="float-left">
+                <h2>Roles</h2>
+            </div>
+        </div>
+        <br />
+        <form method="post">
+            <div class="input-group">
+                <hr />
+                <input id="SearchBox" placeholder="Search By Role Name" type="search" name="SearchTerm" value="@Model.SearchTerm" class="form-control" />
+                <button type="button" class="SearchRole btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <a href="@Url.Action("Roles","Dashboard")" role="button" class="form-control btn btn-primary">
+                    <i class="fas fa-redo-alt"></i>  Reset
+                </a>
+            </div>
+        </form>
+        <div id="tableContainer">
+            @{Html.RenderAction("RolesTable", new { PageNum = Model.PageNum, SearchTerm = Model.SearchTerm }); }
+        </div>
+        <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="actionContainer">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
