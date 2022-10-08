@@ -10,9 +10,13 @@ namespace DealDouble.Web.ViewModels
 {
     public class IndexDashboardViewModel : PageViewModel
     {
+
         public int UsersCount { get; set; }
         public int AuctionsCount { get; set; }
         public int BidsCount { get; set; }
+        public object RolesCount { get;  set; }
+        public object CategoriesCount { get;  set; }
+        public object commentsCount { get; set; }
     }
     public class UsersDashboardViewModel : PageViewModel
     {
@@ -35,6 +39,21 @@ namespace DealDouble.Web.ViewModels
         public List<IdentityRole> Roles { get; set; }
         public int? PageNum { get; set; }
     }
+    public class CreateRoleViewModel : PageViewModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+    public class CommentsViewModel : PageViewModel
+    {
+        public Pager Pager { get; set; }
+        public List<Comment> Comments { get; set; }
+    }
+    public class RoleDetailsViewModel : PageViewModel
+    {
+        public List<DealDoubleUser> Users { get; set; }
+        public IdentityRole Role { get; set; }
+    }
     public class RolesTableViewModel : PageViewModel
     {
         public List<IdentityRole> Roles { get; set; }
@@ -45,11 +64,21 @@ namespace DealDouble.Web.ViewModels
     {
         public DealDoubleUser User { get; set; }
     }
+    public class UserBidsViewModel : PageViewModel
+    {
+        public List<Bid> Bids { get; set; }
+    }
     public class UserRolesViewModel : PageViewModel
     {
         public List<IdentityRole> AvailableRoles { get; set; }
         public List<IdentityRole> UserRoles { get; set; }
         public DealDoubleUser User { get;  set; }
+    }
+    public class UserCommentsViewModel : PageViewModel
+    {
+        public List<Comment> UserComments { get; set; }
+        public List<string> AuctionsName { get; set; }
+        public DealDoubleUser User { get; set; }
     }
     public class UserUpdateViewModel : PageViewModel
     {

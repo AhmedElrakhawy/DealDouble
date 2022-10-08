@@ -1,0 +1,62 @@
+﻿@model DealDouble.Web.ViewModels.UserCommentsViewModel
+    
+<div class="card">
+    <div class="card-body">
+        @if (Model != null && Model.UserComments.Count > 0)
+        {
+            foreach (var comment in Model.UserComments)
+            {
+                var DefaultStars = 5 - comment.Rating;
+                <div class="row">
+                    <div class="col-md-10">
+                        <p>
+                            <a class="float-left" href="#">
+                                <strong>@comment.UserName</strong>
+                            </a>
+                            <span class="float-right mb-2">
+                                Posted On : @comment.PostedOn
+                            </span>
+                        </p>
+                        <div class="clearfix"></div>
+                        <p>@comment.Text</p>
+                        <span class="text-warning float-right">
+                            With Rating :
+                            @for (int i = 0; i < comment.Rating; i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                            @for (int i = 0; i < DefaultStars; i++)
+                            {
+                                <i class="far fa-star"></i>
+                            }
+                        </span>
+                        <span class="text-warning float-right">
+                            Commented On <a id="CommentId" href="@Url.Action("Details", "Auctions", new {ID = comment.RecordID})#@comment.ID">@comment.EntityName</a> -
+                        </span>
+                        <div class="clearfix"></div>
+                        <br />
+                    </div>
+                </div>
+                <hr />
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                No Comments For This User..
+            </div>
+        }
+    </div>
+ 
+</div>
+
+
+@*<script>
+    $(document).ready(function () {
+        $("#CommentId").hover(
+            function () {
+                $("Auctions/Details/3#15").toggle();
+            }
+        );
+    });
+</script>*@

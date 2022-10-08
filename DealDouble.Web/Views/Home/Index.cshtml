@@ -51,6 +51,7 @@
                         </select>
                         <input type="search" class="form-control" name="SearchTerm" id="SearchTerm" />
                         <button type="button" id="SearchBtn" class="btn btn-outline-primary"><i class="fas fa-search"></i>Search</button>
+                        <button type="button" id="ResetBtn" class="btn btn-outline-primary"><i class="fa-solid fa-rotate-right"></i>Reset</button>
                     </div>
                 </form>
             </div>
@@ -74,6 +75,17 @@
                 SearchTerm: $("#SearchTerm").val(),
                 CategoryID: $("#CategorySearch option:selected").attr("data-ID")
             }
+        }).done(function (response) {
+            $("#ListingContainer").html(response);
+        }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {
+            alert("FAIL");
+        });
+    });
+      $("#ResetBtn").click(function () {
+        debugger;
+        $.ajax({
+            type: "Get",
+            url: "@Url.Action("ListingAuctions", "Home")"
         }).done(function (response) {
             $("#ListingContainer").html(response);
         }).fail(function (XMLHttpRequest, testStatus, erorrThrown) {

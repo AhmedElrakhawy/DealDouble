@@ -12,25 +12,43 @@
 </div>
 
 
-<div class="card-deck text-primary">
-        <div class="card border-primary text-center">
-                <h1 class="card-title display-2 align-middle" >@Model.UsersCount</h1> 
-            <div class="card-footer display-4">
-                <a href="@Url.Action("Users","Dashboard")">Users</a>
-            </div>
+<div class="card-columns  text-primary">
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.UsersCount</h1>
+        <div class="card-footer display-4">
+            <a href="@Url.Action("Users","Dashboard")">Users</a>
         </div>
-        <div class="card border-primary text-center">
-            <h1 class="card-title display-2 align-middle">@Model.AuctionsCount</h1>
-            <div class="card-footer display-4">
-                <a href="@Url.Action("Index","Auctions")">Auctions</a>
-            </div>
+    </div>
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.AuctionsCount</h1>
+        <div class="card-footer display-4">
+            <a href="@Url.Action("Index","Auctions")">Auctions</a>
         </div>
-        <div class="card border-primary text-center">
-            <h1 class="card-title display-2 align-middle">@Model.BidsCount</h1>
-            <div class="card-footer display-4">
-                <a href="@Url.Action("Bid","Bids")">Bids</a>
-            </div>
+    </div>
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.BidsCount</h1>
+        <div class="card-footer display-4">
+            <a href="@Url.Action("Bid","Bids")">Bids</a>
         </div>
+    </div>
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.CategoriesCount</h1>
+        <div class="card-footer display-4">
+            <a href="@Url.Action("Categories","Index")">Categories</a>
+        </div>
+    </div>
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.commentsCount</h1>
+        <div class="card-footer display-4">
+            <a href="#">Comments</a>
+        </div>
+    </div>
+    <div class="card border-primary text-center">
+        <h1 class="card-title display-2 align-middle">@Model.RolesCount</h1>
+        <div class="card-footer display-4">
+            <a href="@Url.Action("Dashboard","Roles")">Roles</a>
+        </div>
+    </div>
 </div>
 
 

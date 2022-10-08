@@ -31,6 +31,7 @@ namespace DealDouble.Web.ViewModels
         public DealDoubleUser LastBidder { get; set; }
         public List<Comment> Comments { get; set; }
         public int EntityID { get;  set; }
+        public string UserId { get; set; }
         public bool IsAuthenticated { get; internal set; }
         public Double AvgRating { get; set; }
     }

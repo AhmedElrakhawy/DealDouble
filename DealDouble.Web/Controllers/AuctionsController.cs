@@ -124,6 +124,7 @@ namespace DealDouble.Web.Controllers
         {
             var Model = new DetailsViewModel();
             Model.EntityID = (int)EntityEnums.Auction;
+            Model.UserId = User.Identity.GetUserId();
             Model.PageTitle = "Auction Details";
             Model.PageDescription = "Auction Details Page";
             Model.auction = AuctionsService.GetAuctionByID(ID);

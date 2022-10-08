@@ -1,0 +1,53 @@
+﻿@model DealDouble.Web.ViewModels.RoleDetailsViewModel
+@{
+    ViewBag.Title = "RoleDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row mt-2">
+    <div class="col-lg-12 col-md-12">
+        <h2>Role Details</h2>
+        <hr />
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-lg-9">
+        <!-- Account page navigation-->
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="rolelink nav-link active" href="#" data-href="@Url.Action("RoleDetails","Dashboard",new { roleId = Model.Role.Id })">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="rolelink nav-link" href="#" data-href="@Url.Action("RoleUsers","Dashboard",new { roleId = Model.Role.Id  })">Role Users</a>
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <div class="row">
+                <div id="DivContainer">
+                    @{ Html.RenderPartial("_RoleDetails", Model);}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(".rolelink").click(function () {
+        var linkurl = $(this).attr("data-href");
+
+        if (linkurl != undefined || linkurl != "") {
+            $(".rolelink").removeClass("active");
+            $(this).addClass("active");
+
+            $.ajax({
+                url: linkurl
+            }).done(function (response) {
+                $("#DivContainer").html(response);
+            });
+        }
+    });
+</script>

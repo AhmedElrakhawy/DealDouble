@@ -44,6 +44,7 @@
     <Compile Include="AuctionsService.cs" />
     <Compile Include="BidsService.cs" />
     <Compile Include="CategoriesService.cs" />
+    <Compile Include="CommentsService.cs" />
     <Compile Include="DashboardService.cs" />
     <Compile Include="DealDoubleRoleManager.cs" />
     <Compile Include="DealDoubleSignInManager.cs" />

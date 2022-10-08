@@ -18,7 +18,13 @@ namespace DealDouble.Services
                 return Context.Categories.Include(x => x.Auctions).ToList();
             }
         }
-
+        public int CategoriesCount()
+        {
+            using (var Context = new DealDoubleDBContext())
+            {
+                return Context.Categories.Count();
+            }
+        }
         public void saveCategory(Category category)
         {
             using (var Context = new DealDoubleDBContext())

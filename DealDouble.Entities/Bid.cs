@@ -9,7 +9,7 @@ namespace DealDouble.Entities
     public class Bid : BaseEntity
     {
         public int AuctionID { get; set; }
-        public virtual Auction Auction { get; set; }
+        public Auction Auction { get; set; }
 
         public string UserID { get; set; }
         public DealDoubleUser User { get; set; }

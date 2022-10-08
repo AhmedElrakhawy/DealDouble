@@ -394,10 +394,18 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Dashboard\_UserDetails.cshtml" />
     <Content Include="Views\Dashboard\_UserRoles.cshtml" />
+    <Content Include="Views\Dashboard\CreateRole.cshtml" />
+    <Content Include="Views\Dashboard\RoleDetails.cshtml" />
+    <Content Include="Views\Dashboard\_RoleDetails.cshtml" />
+    <Content Include="Views\Dashboard\_RoleUsers.cshtml" />
+    <Content Include="Views\Dashboard\_UserComments.cshtml" />
+    <Content Include="Views\Dashboard\_UserBids.cshtml" />
+    <Content Include="Views\BIds\AllBids.cshtml" />
+    <Content Include="Views\BIds\BidsTable.cshtml" />
+    <Content Include="Views\Dashboard\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\BIds\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

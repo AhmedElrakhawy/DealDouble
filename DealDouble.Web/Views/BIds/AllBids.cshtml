@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "AllBids";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row container">
+
+    <div class="col-lg-12 m-2">
+        <div>
+            <div class="float-left">
+                <h2>Bids</h2>
+            </div>
+        </div>
+        <br />
+        <form method="post">
+            <div class="input-group">
+                <hr />
+                <input placeholder="Search By Category" id="SearchByCategory" type="search" name="SearchByCategory" value="@Model.SearchByCategory" class="form-control" />
+                <input placeholder="Search By Bid Amount" id="SearchByBidAmount" type="search" name="SearchByBidAmount" value="@Model.SearchbyBidAmount" class="form-control" />
+                <button type="button" class="SearchAuction btn btn-primary">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button type="button" class="btn btn-primary" id="ResetBtn">Reset</button>
+            </div>
+        </form>
+        <div id="tableContainer">
+            @{Html.RenderAction("BidsTable"); }
+        </div>
+        <div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" id="actionContainer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -42,3 +42,8 @@ D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrati
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.UndoBirthdayFeatureToUser.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddImageUrlFeatureToUser.resources
 D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingSOmeUserFeaturesToCOmmentEntity.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.AddingUderIdToCommentsTable.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.seadTheLastMigration.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.addingActualEntityIdToCommentTable.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.UndoTheLastMigration.resources
+D:\My work\Projects\DealDouble\DealDouble.Data\obj\Debug\DealDouble.Data.Migrations.addingActualEntityNameToCommentTable.resources

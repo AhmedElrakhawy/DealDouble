@@ -18,7 +18,7 @@
                 var DefaultStars = 5 - Comment.Rating;
                 <div class="row">
                     <div class="col-md-2">
-                        <img src="@Comment.UserImageUrl" class="rounded-circle img-fluid" style="width: 120px;"/>
+                        <img  src="@Comment.UserImageUrl" class="rounded-circle img-fluid" style="width: 120px;"/>
                     </div>
                     <div class="col-md-10">
                         <p>
@@ -30,7 +30,7 @@
                             </span>
                         </p>
                         <div class="clearfix"></div>
-                        <p>@Comment.Text</p>
+                        <p id="@Comment.ID">@Comment.Text</p>
                         <span class="text-warning float-right">
                             @for (int i = 0; i < Comment.Rating; i++)
                             {
@@ -66,7 +66,8 @@
             <form id="CommentForm">
                 <input type="hidden" name="EntityID" value="@Model.EntityID" />
                 <input type="hidden" name="RecordID" value="@Model.auction.ID" />
-
+                <input type="hidden" name="UserId" value="@Model.UserId" />
+                <input type="hidden" name="EntityName" value="@Model.auction.Title" />
                 <div>
                     <input type="hidden" id="ratingValue" name="Rating" value="1" />
 

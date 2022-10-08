@@ -16,7 +16,10 @@ namespace DealDouble.Web.Controllers
     public class DashboardController : Controller
     {
         DashboardService dashboardService = new DashboardService();
-
+        CommentsService commentsService = new CommentsService();
+        CategoriesService categoriesService = new CategoriesService();
+        AuctionsService auctionsService = new AuctionsService();
+        BidsService bidsService = new BidsService();
         private DealDoubleUserManager _userManager;
         private DealDoubleRoleManager _roleManager;
 
@@ -59,6 +62,9 @@ namespace DealDouble.Web.Controllers
             Model.UsersCount = dashboardService.UsersCount();
             Model.AuctionsCount = dashboardService.GetAuctionsCount();
             Model.BidsCount = dashboardService.GetBidsCount();
+            Model.RolesCount = RoleManager.Roles.Count();
+            Model.commentsCount = commentsService.CommentsCount();
+            Model.CategoriesCount = categoriesService.CategoriesCount();
             return View(Model);
         }
         public ActionResult Users(string SearchTerm, string RoleID, int? PageNum)
@@ -105,9 +111,24 @@ namespace DealDouble.Web.Controllers
             Model.PageNum = PageNum;
             return View(Model);
         }
+        public ActionResult CreateRole()
+        {
+            var Model = new CreateRoleViewModel();
+            Model.PageTitle = "Roles";
+            Model.PageDescription = "Creating Role";
+            return PartialView(Model);
+        }
+        [HttpPost]
+        public ActionResult CreateRole(CreateRoleViewModel model)
+        {
+            var NewRole = new IdentityRole();
+            NewRole.Name = model.Name;
+            RoleManager.Create(NewRole);
+            return RedirectToAction("RolesTable");
+        }
         public ActionResult RolesTable(string SearchTerm, int? PageNum)
         {
-            int PageSize = 1;
+            int PageSize = 3;
             var Model = new RolesTableViewModel();
             Model.SearchTerm = SearchTerm;
             var Roles = RoleManager.Roles;
@@ -180,6 +201,76 @@ namespace DealDouble.Web.Controllers
             }
             return RedirectToAction("UserRoles", new { UserID = UserID });
         }
+        public ActionResult UserComments(string UserID)
+        {
+            var Model = new UserCommentsViewModel();
+            if (UserID != null)
+            {
+                Model.User = UserManager.FindById(UserID);
+                if (Model.User != null)
+                {
+                    Model.UserComments = commentsService.UserComments(UserID);
+                }
+            }
+            return PartialView("_UserComments", Model);
+
+        }
+        public ActionResult RoleDetails(string roleId)
+        {
+            var Model = new RoleDetailsViewModel();
+            Model.Role = RoleManager.FindById(roleId);
+            Model.Users = UserManager.Users.Where(x => x.Roles.Any(r => r.RoleId == roleId)).ToList();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_RoleDetails", Model);
+            }
+            else
+            {
+                return View(Model);
+            }
+        }
+        [HttpPost]
+        public JsonResult UpdateRole(IdentityRole role)
+        {
+            var Result = new JsonResult();
+            if (role != null)
+            {
+                RoleManager.Update(role);
+                Result.Data = new { Success = true };
+                return Result;
+            }
+            else
+            {
+                Result.Data = new { Success = false };
+                return Result;
+            }
+        }
+        [HttpPost]
+        public ActionResult DeleteRole(string RoleID)
+        {
+            if (!string.IsNullOrEmpty(RoleID))
+            {
+                var Role = RoleManager.FindById(RoleID);
+                if (Role != null)
+                {
+                   RoleManager.Delete(Role);
+                }
+            }
+            return RedirectToAction("Roles");
+        }
+        public ActionResult RoleUsers(string roleId)
+        {
+            var Model = new RoleDetailsViewModel();
+            if (!string.IsNullOrEmpty(roleId))
+            {
+                Model.Role = RoleManager.FindById(roleId);
+                if (Model.Role != null)
+                {
+                    Model.Users = UserManager.Users.Where(x => x.Roles.Any(r => r.RoleId == roleId)).ToList();
+                }
+            }
+            return PartialView("_RoleUsers", Model);
+        }
         [HttpPost]
         public ActionResult UserUpdate(UserUpdateViewModel Model)
         {
@@ -222,6 +313,20 @@ namespace DealDouble.Web.Controllers
                 Result.Data = new { Success = false };
             }
             return Result;
+        }
+        public ActionResult UserBids(string UserID)
+        {
+            var Model = new UserBidsViewModel();
+            Model.Bids = bidsService.UserBids(UserID);
+            return PartialView("_UserBids",Model);
+        }
+        public ActionResult Comments(int? PageNum)
+        {
+            int PageSize = 3;
+            var Model = new CommentsViewModel();
+            Model.Comments = dashboardService.GetAllComments(PageNum,PageSize);
+            Model.Pager = new Pager(dashboardService.GetAllCommentsCount(), PageNum, PageSize);
+            return View(Model);
         }
     }
 }

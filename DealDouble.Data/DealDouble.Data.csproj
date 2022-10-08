@@ -131,6 +131,26 @@
     <Compile Include="Migrations\202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.Designer.cs">
       <DependentUpon>202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210070026597_AddingUderIdToCommentsTable.cs" />
+    <Compile Include="Migrations\202210070026597_AddingUderIdToCommentsTable.Designer.cs">
+      <DependentUpon>202210070026597_AddingUderIdToCommentsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210070035200_seadTheLastMigration.cs" />
+    <Compile Include="Migrations\202210070035200_seadTheLastMigration.Designer.cs">
+      <DependentUpon>202210070035200_seadTheLastMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210070618303_addingActualEntityIdToCommentTable.cs" />
+    <Compile Include="Migrations\202210070618303_addingActualEntityIdToCommentTable.Designer.cs">
+      <DependentUpon>202210070618303_addingActualEntityIdToCommentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210070622067_UndoTheLastMigration.cs" />
+    <Compile Include="Migrations\202210070622067_UndoTheLastMigration.Designer.cs">
+      <DependentUpon>202210070622067_UndoTheLastMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210070631527_addingActualEntityNameToCommentTable.cs" />
+    <Compile Include="Migrations\202210070631527_addingActualEntityNameToCommentTable.Designer.cs">
+      <DependentUpon>202210070631527_addingActualEntityNameToCommentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -220,6 +240,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.resx">
       <DependentUpon>202209261615525_AddingSOmeUserFeaturesToCOmmentEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070026597_AddingUderIdToCommentsTable.resx">
+      <DependentUpon>202210070026597_AddingUderIdToCommentsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070035200_seadTheLastMigration.resx">
+      <DependentUpon>202210070035200_seadTheLastMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070618303_addingActualEntityIdToCommentTable.resx">
+      <DependentUpon>202210070618303_addingActualEntityIdToCommentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070622067_UndoTheLastMigration.resx">
+      <DependentUpon>202210070622067_UndoTheLastMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070631527_addingActualEntityNameToCommentTable.resx">
+      <DependentUpon>202210070631527_addingActualEntityNameToCommentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

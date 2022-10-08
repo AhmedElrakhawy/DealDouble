@@ -1,0 +1,18 @@
+namespace DealDouble.Data.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class UndoTheLastMigration : DbMigration
+    {
+        public override void Up()
+        {
+            DropColumn("dbo.Comments", "ActualEntityID");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.Comments", "ActualEntityID", c => c.Int(nullable: false));
+        }
+    }
+}
